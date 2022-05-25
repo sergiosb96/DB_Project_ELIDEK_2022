@@ -1,0 +1,61 @@
+﻿project_id;title;summary;starting_date;ending_date;funding;duration;staff_id;program_id;organization_id;researcher_id
+1;Y-Solowarm;In hac habitasse platea dictumst. Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante. Nulla justo.;2020-03-09;2023-07-21;175212,26;1229;6;7;5;24
+2;Veribet;In hac habitasse platea dictumst. Aliquam augue quam, sollicitudin vitae, consectetuer eget, rutrum at, lorem. Integer tincidunt ante vel ipsum. Praesent blandit lacinia erat.;2021-07-11;2023-11-27;406390,48;869;3;11;11;58
+3;Lotstring;"Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla dapibus dolor vel est. Donec odio justo, sollicitudin ut, suscipit a, feugiat et, eros.";2020-05-24;2022-04-14;753140,88;690;2;31;16;82
+4;Lotlux;Vivamus tortor. Duis mattis egestas metus. Aenean fermentum. Donec ut mauris eget massa tempor convallis.;2021-03-28;2021-08-12;437322,76;137;9;24;18;68
+5;Tempsoft;Curabitur at ipsum ac tellus semper interdum. Mauris ullamcorper purus sit amet nulla. Quisque arcu libero, rutrum ac, lobortis vel, dapibus at, diam. Nam tristique tortor eu pede.;2020-04-13;2022-07-24;659775,46;832;10;24;26;56
+6;Stim;Duis consequat dui nec nisi volutpat eleifend.;2020-03-19;2022-12-31;375871,15;1017;20;3;22;94
+7;Mat Lam Tam;Suspendisse accumsan tortor quis turpis. Sed ante. Vivamus tortor. Duis mattis egestas metus.;2020-10-30;2024-03-11;469213,85;1228;11;29;23;6
+8;Toughjoyfax;Maecenas tincidunt lacus at velit. Vivamus vel nulla eget eros elementum pellentesque. Quisque porta volutpat erat.;2019-08-14;2023-04-07;179087,94;1332;16;9;35;61
+9;Stringtough;Quisque erat eros, viverra eget, congue eget, semper rutrum, nulla. Nunc purus. Phasellus in felis.;2019-11-14;2023-07-20;594093,77;1344;8;12;33;10
+10;Duobam;Sed ante. Vivamus tortor. Duis mattis egestas metus. Aenean fermentum.;2019-12-08;2023-07-03;143256,55;1303;6;15;26;82
+11;Viva;Nullam porttitor lacus at turpis. Donec posuere metus vitae ipsum.;2020-05-18;2022-06-15;610937,39;758;20;39;24;106
+12;Span;In eleifend quam a odio.;2021-07-26;2022-11-13;993424,35;475;10;31;37;71
+13;Tampflex;Integer aliquet, massa id lobortis convallis, tortor risus dapibus augue, vel accumsan tellus nisi eu orci. Mauris lacinia sapien quis libero. Nullam sit amet turpis elementum ligula vehicula consequat. Morbi a ipsum.;2021-08-22;2024-05-01;707056,75;983;12;11;24;114
+14;Bamity;Phasellus id sapien in sapien iaculis congue. Vivamus metus arcu, adipiscing molestie, hendrerit at, vulputate vitae, nisl. Aenean lectus. Pellentesque eget nunc.;2021-11-25;2025-03-23;718206,55;1214;13;29;5;48
+15;Alphazap;Nam ultrices, libero non mattis pulvinar, nulla pede ullamcorper augue, a suscipit nulla elit ac nulla. Sed vel enim sit amet nunc viverra dapibus.;2021-09-05;2023-02-02;952130,31;515;16;19;20;53
+16;Otcom;Curabitur in libero ut massa volutpat convallis. Morbi odio odio, elementum eu, interdum eu, tincidunt in, leo. Maecenas pulvinar lobortis est.;2020-02-12;2023-03-17;994946,80;1129;17;2;2;114
+17;Matsoft;Suspendisse potenti. Nullam porttitor lacus at turpis.;2019-10-08;2021-05-26;508597,70;596;1;14;29;53
+18;Y-find;Nulla nisl. Nunc nisl. Duis bibendum, felis sed interdum venenatis, turpis enim blandit mi, in porttitor pede justo eu massa.;2021-08-15;2024-02-27;175187,59;926;2;20;16;112
+19;Temp;Vivamus in felis eu sapien cursus vestibulum.;2021-11-14;2024-04-20;645769,10;888;3;13;36;45
+20;Treeflex;Pellentesque eget nunc.;2020-09-20;2023-11-28;585658,65;1164;5;20;25;9
+21;Y-find;Praesent blandit. Nam nulla.;2021-01-23;2023-05-18;646809,85;845;13;25;40;23
+22;Tin;Duis aliquam convallis nunc. Proin at turpis a pede posuere nonummy.;2021-06-07;2023-08-18;185605,82;802;13;35;19;13
+23;It;Suspendisse ornare consequat lectus. In est risus, auctor sed, tristique in, tempus sit amet, sem. Fusce consequat. Nulla nisl.;2022-05-18;2024-04-28;565458,09;711;7;26;4;31
+24;Otcom;Aliquam sit amet diam in magna bibendum imperdiet. Nullam orci pede, venenatis non, sodales sed, tincidunt eu, felis.;2021-05-12;2024-10-18;377363,08;1255;9;24;38;68
+25;Treeflex;Etiam vel augue. Vestibulum rutrum rutrum neque.;2021-01-09;2023-07-10;815935,02;912;9;2;15;68
+26;Greenlam;Morbi porttitor lorem id ligula. Suspendisse ornare consequat lectus. In est risus, auctor sed, tristique in, tempus sit amet, sem. Fusce consequat.;2021-06-10;2024-02-15;834861,97;980;8;4;23;79
+27;Flowdesk;Nulla suscipit ligula in lacus.;2021-01-21;2024-10-15;730961,01;1363;2;5;6;4
+28;Ventosanzap;Nam congue, risus semper porta volutpat, quam pede lobortis ligula, sit amet eleifend pede libero quis orci. Nullam molestie nibh in lectus. Pellentesque at nulla. Suspendisse potenti.;2021-12-09;2024-12-03;613546,37;1090;3;9;40;31
+29;Trippledex;"Maecenas tristique, est et tempus semper, est quam pharetra magna, ac consequat metus sapien ut nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris viverra diam vitae quam. Suspendisse potenti.";2021-01-15;2023-12-28;369787,15;1077;1;6;19;28
+30;Bigtax;Vestibulum rutrum rutrum neque. Aenean auctor gravida sem. Praesent id massa id nisl venenatis lacinia. Aenean sit amet justo.;2019-08-27;2021-08-05;699174,57;709;1;30;7;8
+31;Fixflex;Nulla nisl. Nunc nisl. Duis bibendum, felis sed interdum venenatis, turpis enim blandit mi, in porttitor pede justo eu massa.;2021-03-13;2022-06-22;212009,44;466;5;32;7;95
+32;Span;Proin eu mi. Nulla ac enim. In tempor, turpis nec euismod scelerisque, quam turpis adipiscing lorem, vitae mattis nibh ligula nec sem.;2021-01-05;2022-07-25;406459,02;566;5;33;27;115
+33;Kanlam;Vivamus vel nulla eget eros elementum pellentesque. Quisque porta volutpat erat. Quisque erat eros, viverra eget, congue eget, semper rutrum, nulla. Nunc purus.;2021-08-04;2025-03-06;483539,62;1310;6;23;16;57
+34;Bigtax;Aliquam non mauris. Morbi non lectus. Aliquam sit amet diam in magna bibendum imperdiet.;2022-03-09;2024-06-03;760452,65;817;9;1;16;111
+35;It;Pellentesque ultrices mattis odio.;2019-10-30;2022-11-05;707462,25;1102;11;36;33;23
+36;Latlux;In hac habitasse platea dictumst. Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante. Nulla justo.;2021-12-30;2022-09-07;266865,32;251;10;13;20;72
+37;Wrapsafe;Duis aliquam convallis nunc. Proin at turpis a pede posuere nonummy. Integer non velit. Donec diam neque, vestibulum eget, vulputate ut, ultrices vel, augue.;2020-11-08;2023-02-05;785747,93;819;12;13;7;49
+38;Stronghold;Maecenas pulvinar lobortis est. Phasellus sit amet erat.;2022-02-20;2024-09-10;186576,64;933;18;30;6;111
+39;Toughjoyfax;Integer pede justo, lacinia eget, tincidunt eget, tempus vel, pede. Morbi porttitor lorem id ligula.;2021-01-31;2024-05-05;636283,05;1190;19;19;33;68
+40;Fixflex;In hac habitasse platea dictumst. Etiam faucibus cursus urna.;2021-05-02;2022-11-05;242537,67;552;17;2;32;21
+41;Pannier;Morbi vel lectus in quam fringilla rhoncus. Mauris enim leo, rhoncus sed, vestibulum sit amet, cursus id, turpis.;2021-02-15;2022-12-28;332861,13;681;12;6;25;45
+42;Solarbreeze;Curabitur at ipsum ac tellus semper interdum.;2020-12-14;2024-01-19;983042,76;1131;19;25;8;23
+43;Voltsillam;Maecenas ut massa quis augue luctus tincidunt.;2020-04-05;2022-07-23;737552,50;839;20;19;36;67
+44;Lotstring;Morbi non quam nec dui luctus rutrum.;2019-09-11;2021-10-20;516530,37;770;20;4;19;48
+45;Quo Lux;Nam ultrices, libero non mattis pulvinar, nulla pede ullamcorper augue, a suscipit nulla elit ac nulla. Sed vel enim sit amet nunc viverra dapibus. Nulla suscipit ligula in lacus.;2020-12-16;2023-01-03;629571,14;748;7;30;35;115
+46;Fintone;Nunc nisl. Duis bibendum, felis sed interdum venenatis, turpis enim blandit mi, in porttitor pede justo eu massa.;2021-11-02;2022-07-17;569443,63;257;6;36;25;73
+47;Treeflex;Morbi porttitor lorem id ligula. Suspendisse ornare consequat lectus. In est risus, auctor sed, tristique in, tempus sit amet, sem.;2021-06-23;2024-12-17;859414,24;1273;5;35;15;7
+48;Regrant;"Praesent lectus. Vestibulum quam sapien, varius ut, blandit non, interdum in, ante. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Duis faucibus accumsan odio. Curabitur convallis.";2022-01-05;2025-02-21;876937,65;1143;4;31;21;97
+49;Quo Lux;Nam dui.;2020-04-26;2024-03-12;506214,53;1416;9;19;33;111
+50;Home Ing;"Nulla neque libero, convallis eget, eleifend luctus, ultricies eu, nibh. Quisque id justo sit amet sapien dignissim vestibulum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla dapibus dolor vel est.";2020-05-08;2022-05-17;715326,39;739;2;6;22;58
+51;Tresom;Sed ante. Vivamus tortor.;2021-02-23;2024-01-27;189702,07;1068;4;27;12;119
+52;Rank;Morbi sem mauris, laoreet ut, rhoncus aliquet, pulvinar sed, nisl. Nunc rhoncus dui vel sem. Sed sagittis.;2022-01-23;2024-06-15;229035,29;874;3;34;6;59
+53;Gembucket;Nulla ut erat id mauris vulputate elementum. Nullam varius. Nulla facilisi.;2021-03-30;2023-03-27;971767,31;727;11;32;11;88
+54;Flowdesk;Nulla tempus. Vivamus in felis eu sapien cursus vestibulum. Proin eu mi.;2020-04-05;2022-08-23;927105,82;870;10;2;38;107
+55;Zoolab;Nulla tempus.;2019-12-11;2022-09-06;424046,16;1000;18;33;34;86
+56;Lotlux;Nam dui. Proin leo odio, porttitor id, consequat in, consequat ut, nulla. Sed accumsan felis. Ut at dolor quis odio consequat varius.;2019-12-25;2020-12-28;447308,11;369;17;23;18;46
+57;Cardify;Morbi non quam nec dui luctus rutrum. Nulla tellus. In sagittis dui vel nisl.;2021-02-02;2022-01-08;247623,61;340;17;7;26;87
+58;Treeflex;Aliquam non mauris.;2020-12-07;2023-06-30;138107,69;935;9;21;27;92
+59;Bitchip;Phasellus in felis. Donec semper sapien a libero. Nam dui.;2019-10-25;2021-04-19;299705,68;542;5;8;20;108
+60;Gembucket;Donec vitae nisi. Nam ultrices, libero non mattis pulvinar, nulla pede ullamcorper augue, a suscipit nulla elit ac nulla. Sed vel enim sit amet nunc viverra dapibus.;2020-10-31;2022-04-03;397895,44;519;4;11;37;108
