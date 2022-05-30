@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title> <%= pageTitle %> </title>
+    <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="/assets/css/styles.css">
+</head>
+
+<body>
+    
+    <%- include("includes/navbar.ejs")%>
+    <div class="container">
+        <div class="row" id="row">
+            <div class="col-md-12">
+                <form class="form-horizontal" name="organizations-form" action="/organizations/add" method="POST">
+                    <div class="form-group col-sm-3 mb-3">
+                        <label for="organization_id">ID</label>
+                        <input type="text" class="form-control" name="organization_id" placeholder="Enter Organization ID">
+                    </div>
+                    <div class="form-group col-sm-3 mb-3">
+                        <label for="name">Name</label>
+                        <input type="text" class="form-control" name="name" placeholder="Enter Name">
+                    </div>
+                    <div class="form-group col-sm-3 mb-3">
+                        <label for="abbreviation">Abbreviation</label>
+                        <input type="text" class="form-control" name="abbreviation" placeholder="Enter Abbreviation">
+                    </div>
+                    <div class="form-group col-sm-3 mb-3">
+                        <label for="street">Street</label>
+                        <input type="text" class="form-control" name="street" placeholder="Enter Street">
+                    </div>
+                    <div class="form-group col-sm-3 mb-3">
+                        <label for="number">Number</label>
+                        <input type="text" class="form-control" name="number" placeholder="Enter Street Number">
+                    </div>
+                    <div class="form-group col-sm-3 mb-3">
+                        <label for="postal_code">Postal Code</label>
+                        <input type="text" class="form-control" name="postal_code" placeholder="Enter Postal Code">
+                    </div>
+                    <div class="form-group col-sm-3 mb-3">
+                        <label for="city">City</label>
+                        <input type="text" class="form-control" name="city" placeholder="Enter city">
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-submit-custom">ADD</button>
+                </form>
+        </div>
+    </div>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+</body>
+
+</html>

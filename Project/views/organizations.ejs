@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title> <%= pageTitle %> </title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
+</head>
+
+<body>
+    
+    <%- include("includes/navbar.ejs")%>
+
+    <div class="container">
+        <div class="row" id="row">
+            <div class="col-md-12">
+                <div class="card" id="card-container">
+                    <div class="card-body" id="card">
+                    <% if (organizations.length == 0) { %> 
+                        <h1 style="margin-top: 5rem;">No Organizations found!</h1>
+                    <% } else { %>
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Name</th>
+                                        <th>Abbreviation</th>
+                                        <th>Street Name</th>
+                                        <th>Street Number</th>
+                                        <th>Postal Code</th>
+                                        <th>City</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <% organizations.forEach((organizations, _) => { %>
+                                        <tr>
+                                            <td><%= organizations.organization_id %></td>
+                                            <td><%= organizations.name %></td>
+                                            <td><%= organizations.abbreviation %></td>
+                                            <td><%= organizations.street %></td>
+                                            <td><%= organizations.number %></td>
+                                            <td><%= organizations.postal_code %></td>
+                                            <td><%= organizations.city %></td>
+                                            <td>
+                                                <a type="button" onclick="setModalFields(this)"
+                                                    data-organization_id="<%= organizations.organization_id %>"
+                                                    data-name="<%= organizations.name %>"
+                                                    data-abbrevation="<%= organizations.abbreviation %>"
+                                                    data-street="<%= organizations.street %>"
+                                                    data-number="<%= organizations.number %>"
+                                                    data-postal_code="<%= organizations.postal_code %>"
+                                                    data-city="<%= organizations.city %>"
+                                                    data-target="#editModal">
+                                                    <i class="fa fa-edit"></i>
+                                                </a>
+                                            </td>
+                                            <form method="POST" action="/organizations/delete/<%= organizations.organization_id %>">
+                                                <td> 
+                                                    <button style="all: unset; cursor: pointer;" type="submit"><i class="fa fa-trash"></i></button>
+                                                </td>
+                                            </form>
+                                        </tr>
+                                    <% }) %>
+                                </tbody>
+                            </table>
+                        </div>
+                    <% } %>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function setModalFields(row) {
+            document.getElementById("organization_id").value = row.dataset.organization_id;
+            document.getElementById("name").value = row.dataset.name;
+            document.getElementById("abbreviation").value = row.dataset.abbreviation;
+            document.getElementById("street").value = row.dataset.street;
+            document.getElementById("number").value = row.dataset.number;
+            document.getElementById("postal_code").value = row.dataset.postal_code;
+            document.getElementById("city").value = row.dataset.city;
+
+            document.getElementById("modal-form").action = "/organizations/update/" + row.dataset.organization_id;
+            document.getElementById("modal-form").method = "POST";
+        }
+    </script>
+
+
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+
+    <script src="/assets/js/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title> <%= pageTitle %> </title>
+    <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="/assets/css/styles.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
+</head>
+
+<body>
+    
+    <%- include("includes/navbar.ejs")%>
+
+
+<div class="container" id="row-container">
+    <div class="row" id="row">
+        <div class="col-md-4">
+            <div class="card" id="card-container-layout">
+                <div class="card-body" id="card">
+                    <h4 class="card-title">View Projects</h4>
+                    <p class="card-text" id="paragraph">Display all Projects in our Database!</p>
+                    <a class="btn btn-primary" id="show-btn" href="/projects">Show</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card" id="card-container-layout">
+                <div class="card-body" id="card">
+                    <h4 class="card-title">View Organizations</h4>
+                    <p class="card-text" id="paragraph">Display all Organizations in our Database!<br></p>
+                    <a class="btn btn-primary" id="show-btn" href="/organizations">Show</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card" id="card-container-layout">
+                <div class="card-body" id="card">
+                    <h4 class="card-title">View Researchers</h4>
+                    <p class="card-text" id="paragraph">Display all Researchers in our Database!<br></p>
+                    <a class="btn btn-primary" id="show-btn" href="/researchers">Show</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row" id="row">
+        <div class="col-md-4">
+            <div class="card" id="card-container-layout">
+                <div class="card-body" id="card">
+                    <h4 class="card-title">View Programs</h4>
+                    <p class="card-text" id="paragraph">Display all Programs in our Database!</p>
+                    <a class="btn btn-primary" id="show-btn" href="/programs">Show</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card" id="card-container-layout">
+                <div class="card-body" id="card">
+                    <h4 class="card-title">View Deliverables</h4>
+                    <p class="card-text" id="paragraph">Display all Deliverables in our Database!<br></p>
+                    <a class="btn btn-primary" id="show-btn" href="/deliverables">Show</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card" id="card-container-layout">
+                <div class="card-body" id="card">
+                    <h4 class="card-title">View Staff</h4>
+                    <p class="card-text" id="paragraph">Display all Staff in our Database!<br></p>
+                    <a class="btn btn-primary" id="show-btn" href="/staff">Show</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row" id="row">
+        <div class="col-md-4">
+            <div class="card" id="card-container-layout">
+                <div class="card-body" id="card">
+                    <h4 class="card-title">View 3.1</h4>
+                    <p class="card-text" id="paragraph">Display all Projects in our Database!</p>
+                    <a class="btn btn-primary" id="show-btn" href="/">Answer</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card" id="card-container-layout">
+                <div class="card-body" id="card">
+                    <h4 class="card-title">View 3.2a</h4>
+                    <p class="card-text" id="paragraph">Display all Organizations in our Database!<br></p>
+                    <a class="btn btn-primary" id="show-btn" href="/">Answer</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card" id="card-container-layout">
+                <div class="card-body" id="card">
+                    <h4 class="card-title">View 3.2b</h4>
+                    <p class="card-text" id="paragraph">Display all Researchers in our Database!<br></p>
+                    <a class="btn btn-primary" id="show-btn" href="/">Answer</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row" id="row">
+        <div class="col-md-4">
+            <div class="card" id="card-container-layout">
+                <div class="card-body" id="card">
+                    <h4 class="card-title">View 3.3</h4>
+                    <p class="card-text" id="paragraph">Display all Projects in our Database!</p>
+                    <a class="btn btn-primary" id="show-btn" href="/">Answer</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card" id="card-container-layout">
+                <div class="card-body" id="card">
+                    <h4 class="card-title">View 3.4</h4>
+                    <p class="card-text" id="paragraph">Display all Organizations in our Database!<br></p>
+                    <a class="btn btn-primary" id="show-btn" href="/">Answer</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card" id="card-container-layout">
+                <div class="card-body" id="card">
+                    <h4 class="card-title">View 3.5</h4>
+                    <p class="card-text" id="paragraph">Display all Researchers in our Database!<br></p>
+                    <a class="btn btn-primary" id="show-btn" href="/">Answer</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row" id="row">
+        <div class="col-md-4">
+            <div class="card" id="card-container-layout">
+                <div class="card-body" id="card">
+                    <h4 class="card-title">View 3.6</h4>
+                    <p class="card-text" id="paragraph">Display all Projects in our Database!</p>
+                    <a class="btn btn-primary" id="show-btn" href="/">Answer</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card" id="card-container-layout">
+                <div class="card-body" id="card">
+                    <h4 class="card-title">View 3.7</h4>
+                    <p class="card-text" id="paragraph">Display all Organizations in our Database!<br></p>
+                    <a class="btn btn-primary" id="show-btn" href="/">Answer</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card" id="card-container-layout">
+                <div class="card-body" id="card">
+                    <h4 class="card-title">View 3.8</h4>
+                    <p class="card-text" id="paragraph">Display all Researchers in our Database!<br></p>
+                    <a class="btn btn-primary" id="show-btn" href="/">Answer</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row" id="row">
+        <div class="col-md-4">
+            <div class="card" id="card-container-layout">
+                <div class="card-body" id="card">
+                    <h4 class="card-title">Add Project</h4>
+                    <p class="card-text" id="paragraph">Display all Projects in our Database!</p>
+                    <a class="btn btn-primary" id="show-btn" href="/">Add</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card" id="card-container-layout">
+                <div class="card-body" id="card">
+                    <h4 class="card-title">Add Researcher</h4>
+                    <p class="card-text" id="paragraph">Display all Organizations in our Database!<br></p>
+                    <a class="btn btn-primary" id="show-btn" href="/">Add</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card" id="card-container-layout">
+                <div class="card-body" id="card">
+                    <h4 class="card-title">Add Organization</h4>
+                    <p class="card-text" id="paragraph">Display all Researchers in our Database!<br></p>
+                    <a class="btn btn-primary" id="show-btn" href="/organizations-add">Add</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/assets/js/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+
+</body>
+
+</html>

@@ -1,14 +1,13 @@
 const express = require('express');
 const path = require('path');
-const session = require('express-session');
+
 
 require('custom-env').env('localhost');
 
 /* ROUTES and how to import routes */
 
 const layout = require('./routes/layout');
-const grades = require('./routes/grades');
-const students = require('./routes/students');
+const organizations = require('./routes/organizations');
 
 /* end of ROUTES and how to import routes */
 
@@ -21,19 +20,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.set('view engine', 'ejs');
 app.set('views', 'views');
 
-app.use(flash());
-
-app.use(session({
-    secret: "ThisShouldBeSecret",
-    resave: false,
-    saveUninitialized: false
-}));
 
 /* Routes used by the project */
 
 app.use('/', layout);
-app.use('/grades', grades);
-app.use('/students', students);
+app.use('/organizations', organizations);
 
 /* End of routes used by the project */
 
