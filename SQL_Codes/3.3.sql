@@ -7,4 +7,4 @@ from (select projects.project_id,title,starting_date,ending_date,name
     where researchers.researcher_id=working.project_id)as S
     
 where T.project_ID=S.project_ID
-order by name
+order by name;
