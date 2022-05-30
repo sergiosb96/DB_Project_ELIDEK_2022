@@ -1,8 +1,8 @@
-SELECT first_name, last_name, COUNT(project_id) AS Total_Projects
+SELECT CONCAT(Researchers.first_name, ' ' , Researchers.last_name) AS Researcher_Name, COUNT(working.project_id) AS Total_Projects
 FROM Researchers
-JOIN Working
-  ON Researchers.researcher_id = Working.researcher_id
-WHERE EXISTS 
-   (SELECT Projects.title FROM Projects LEFT JOIN Deliverables ON Projects.project_id = Deliverables.project_id 
-   AND deliverables.date IS NULL)
-HAVING COUNT(project_id) >= 5 ;
+INNER JOIN Working ON Researchers.researcher_id = Working.researcher_id
+INNER JOIN Projects ON Working.project_id = Projects.project_id
+LEFT JOIN Deliverables ON Projects.project_id = Deliverables.project_id 
+WHERE deliverables.date IS NULL
+GROUP BY Researcher_Name
+HAVING Total_Projects >= 5;
