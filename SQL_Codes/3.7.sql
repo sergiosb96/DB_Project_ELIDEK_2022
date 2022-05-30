@@ -1,4 +1,4 @@
-select name,first_name,last_name,title,total_funding
+select first_name as researcher_first_name,last_name as researcher_last_name,name as organization_name,total_funding
 from (select name,organizations.organization_id
 		from organizations,companies
         where organizations.organization_id=companies.organization_id)as S,
