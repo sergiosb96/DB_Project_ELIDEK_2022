@@ -6,5 +6,5 @@ from (select projects.project_id,title,starting_date,ending_date,name
     from researchers,working
     where researchers.researcher_id=working.project_id)as S
     
-where T.project_ID=S.project_ID and curdate()<ending_date and curdate()>starting_date
+where T.project_ID=S.project_ID and curdate() BETWEEN starting_date AND ending_date
 order by name;
