@@ -1,4 +1,4 @@
-select title,starting_date,ending_date,name,last_name,first_name
+select distinct title,starting_date,ending_date,name,last_name,first_name
 from (select projects.project_id,title,starting_date,ending_date,name
 	from projects,science_field
     where projects.project_id=science_field.project_id)as T, 
