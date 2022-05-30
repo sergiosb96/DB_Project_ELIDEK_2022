@@ -10,4 +10,4 @@ from (select projects.project_id,name
 where T.project_id=S.project_id and T.name<>S.name
 group by s.name
 order by times desc
-limit 3
+limit 3;
