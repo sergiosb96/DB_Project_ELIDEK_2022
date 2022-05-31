@@ -53,7 +53,7 @@ CREATE TABLE Organizations
   PRIMARY KEY (organization_id)
 );
 
-CREATE TABLE Oganizations_Phonenumber
+CREATE TABLE Organizations_Phonenumber
 (
   number INT NOT NULL,
   organization_id INT NOT NULL,

@@ -17,6 +17,8 @@
 CREATE DATABASE IF NOT EXISTS `elidek` /*!40100 DEFAULT CHARACTER SET utf8mb4 */;
 USE `elidek`;
 
+SET FOREIGN_KEY_CHECKS=0;
+
 -- Dumping structure for πίνακας elidek.companies
 CREATE TABLE IF NOT EXISTS `companies` (
   `private_budget` float NOT NULL,
@@ -42,7 +44,7 @@ CREATE TABLE IF NOT EXISTS `deliverables` (
 
 -- Dumping structure for πίνακας elidek.evaluating
 CREATE TABLE IF NOT EXISTS `evaluating` (
-  `grade` int(11) NOT NULL,
+  `grade` int(11) NOT NULL CHECK (`grade` >= 0 AND `grade` <= 10),
   `date` date NOT NULL,
   `researcher_id` int(11) NOT NULL,
   `project_id` int(11) NOT NULL,
@@ -54,27 +56,27 @@ CREATE TABLE IF NOT EXISTS `evaluating` (
 
 -- Data exporting was unselected.
 
--- Dumping structure for πίνακας elidek.oganizations_phonenumber
-CREATE TABLE IF NOT EXISTS `oganizations_phonenumber` (
-  `number` int(11) NOT NULL,
+-- Dumping structure for πίνακας elidek.organizations
+CREATE TABLE IF NOT EXISTS `organizations` (
   `organization_id` int(11) NOT NULL,
-  PRIMARY KEY (`number`,`organization_id`),
-  KEY `organization_id` (`organization_id`),
-  CONSTRAINT `oganizations_phonenumber_ibfk_1` FOREIGN KEY (`organization_id`) REFERENCES `organizations` (`organization_id`)
+  `name` varchar(150) NOT NULL,
+  `abbreviation` varchar(50) NOT NULL,
+  `street` varchar(50) NOT NULL,
+  `number` int(11) NOT NULL,
+  `postal_code` int(11) NOT NULL CHECK (`postal_code` >= 0 AND `postal_code` <= 99999),
+  `city` varchar(50) NOT NULL,
+  PRIMARY KEY (`organization_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- Data exporting was unselected.
 
--- Dumping structure for πίνακας elidek.organizations
-CREATE TABLE IF NOT EXISTS `organizations` (
+-- Dumping structure for πίνακας elidek.organizations_phonenumber
+CREATE TABLE IF NOT EXISTS `organizations_phonenumber` (
+  `number` bigint(20) NOT NULL CHECK (`number` >= 0 AND `number` <= 9999999999),
   `organization_id` int(11) NOT NULL,
-  `name` varchar(250) NOT NULL,
-  `abbreviation` varchar(250) NOT NULL,
-  `street` varchar(250) NOT NULL,
-  `number` int(11) NOT NULL,
-  `postal_code` int(11) NOT NULL,
-  `city` varchar(250) NOT NULL,
-  PRIMARY KEY (`organization_id`)
+  PRIMARY KEY (`number`,`organization_id`),
+  KEY `organization_id` (`organization_id`),
+  CONSTRAINT `organizations_phonenumber_ibfk_1` FOREIGN KEY (`organization_id`) REFERENCES `organizations` (`organization_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- Data exporting was unselected.
@@ -82,8 +84,8 @@ CREATE TABLE IF NOT EXISTS `organizations` (
 -- Dumping structure for πίνακας elidek.program
 CREATE TABLE IF NOT EXISTS `program` (
   `program_id` int(11) NOT NULL,
-  `Name` varchar(250) NOT NULL,
-  `Department` varchar(250) NOT NULL,
+  `Name` varchar(100) NOT NULL,
+  `Department` varchar(100) NOT NULL,
   PRIMARY KEY (`program_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -92,12 +94,12 @@ CREATE TABLE IF NOT EXISTS `program` (
 -- Dumping structure for πίνακας elidek.projects
 CREATE TABLE IF NOT EXISTS `projects` (
   `project_id` int(11) NOT NULL,
-  `title` varchar(250) NOT NULL,
+  `title` varchar(100) NOT NULL,
   `summary` varchar(500) NOT NULL,
-  `starting_date` varchar(250) NOT NULL,
+  `starting_date` date NOT NULL,
   `ending_date` date NOT NULL,
-  `funding` float NOT NULL,
-  `duration` int(11) NOT NULL,
+  `funding` float NOT NULL CHECK (`funding` >= 100000 AND `funding` <= 1000000),
+  `duration` int(11) NOT NULL CHECK (`duration` >= 0 AND `duration` <= 1461),
   `staff_id` int(11) NOT NULL,
   `program_id` int(11) NOT NULL,
   `organization_id` int(11) NOT NULL,
@@ -118,11 +120,11 @@ CREATE TABLE IF NOT EXISTS `projects` (
 -- Dumping structure for πίνακας elidek.researchers
 CREATE TABLE IF NOT EXISTS `researchers` (
   `researcher_id` int(11) NOT NULL,
-  `first_name` varchar(250) NOT NULL,
-  `last_name` varchar(250) NOT NULL,
-  `gender` varchar(250) NOT NULL,
+  `first_name` varchar(100) NOT NULL,
+  `last_name` varchar(100) NOT NULL,
+  `gender` varchar(50) NOT NULL,
   `birth_date` date NOT NULL,
-  `email` varchar(250) NOT NULL,
+  `email` varchar(250) NOT NULL CHECK (`email` LIKE '_%@_%._%'),
   PRIMARY KEY (`researcher_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -130,7 +132,7 @@ CREATE TABLE IF NOT EXISTS `researchers` (
 
 -- Dumping structure for πίνακας elidek.researcher_phonenumber
 CREATE TABLE IF NOT EXISTS `researcher_phonenumber` (
-  `number` int(11) NOT NULL,
+  `number` bigint(20) NOT NULL CHECK (`number` >= 0 AND `number` <= 9999999999),
   `researcher_id` int(11) NOT NULL,
   PRIMARY KEY (`number`,`researcher_id`),
   KEY `researcher_id` (`researcher_id`),
@@ -152,7 +154,7 @@ CREATE TABLE IF NOT EXISTS `research_laboratories` (
 
 -- Dumping structure for πίνακας elidek.science_field
 CREATE TABLE IF NOT EXISTS `science_field` (
-  `name` varchar(250) NOT NULL,
+  `name` varchar(100) NOT NULL,
   `project_id` int(11) NOT NULL,
   PRIMARY KEY (`name`,`project_id`),
   KEY `project_id` (`project_id`),
@@ -164,10 +166,10 @@ CREATE TABLE IF NOT EXISTS `science_field` (
 -- Dumping structure for πίνακας elidek.staff
 CREATE TABLE IF NOT EXISTS `staff` (
   `staff_id` int(11) NOT NULL,
-  `first_name` varchar(250) NOT NULL,
-  `last_name` varchar(250) NOT NULL,
-  `email` varchar(250) NOT NULL,
-  `department` varchar(250) NOT NULL,
+  `first_name` varchar(100) NOT NULL,
+  `last_name` varchar(100) NOT NULL,
+  `email` varchar(250) NOT NULL CHECK (`email` LIKE '_%@_%._%'),
+  `department` varchar(100) NOT NULL,
   PRIMARY KEY (`staff_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -205,6 +207,8 @@ CREATE TABLE IF NOT EXISTS `working_relationship` (
   CONSTRAINT `working_relationship_ibfk_1` FOREIGN KEY (`researcher_id`) REFERENCES `researchers` (`researcher_id`),
   CONSTRAINT `working_relationship_ibfk_2` FOREIGN KEY (`organization_id`) REFERENCES `organizations` (`organization_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+SET FOREIGN_KEY_CHECKS=1;
 
 -- Data exporting was unselected.
 

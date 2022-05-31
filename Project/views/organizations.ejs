@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
 </head>
 
-<body>
+<body> 
     
     <%- include("includes/navbar.ejs")%>
 
@@ -49,6 +49,7 @@
                                             <td><%= organizations.city %></td>
                                             <td>
                                                 <a type="button" onclick="setModalFields(this)"
+                                                    data-toggle="modal"
                                                     data-organization_id="<%= organizations.organization_id %>"
                                                     data-name="<%= organizations.name %>"
                                                     data-abbrevation="<%= organizations.abbreviation %>"
