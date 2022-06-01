@@ -19,18 +19,17 @@
           <!-- Modal content-->
           <div class="modal-content">
             <div class="modal-header">
-              <h4 class="modal-title">Edit Organizations</h4>
+              <h4 class="modal-title">Edit Researchers</h4>
             </div>
             <div class="modal-body">
                 <form id="modal-form">
                     <div style="text-align: center;">
-                        <input type="text" name="ID" id="organization_id" readonly></br>
-                        <input type="text" name="Name" id="name"></br>
-                        <input type="text" name="Abbreviation" id="abbreviation"></br>
-                        <input type="text" name="Street Name" id="street"></br>
-                        <input type="text" name="Street Number" id="number"></br>
-                        <input type="text" name="Postal Code" id="postal_code"></br>
-                        <input type="text" name="City" id="city">
+                        <input type="text" name="Researcher ID" id="researcher_id" readonly></br>
+                        <input type="text" name="First Name" id="first_name"></br>
+                        <input type="text" name="Last Name" id="last_name"></br>
+                        <input type="text" name="Gender" id="gender"></br>
+                        <input type="text" name="Birth Date" id="birth_date"></br>
+                        <input type="text" name="Email" id="email">
 
                     </div>
                 </form>
@@ -51,48 +50,45 @@
             <div class="col-md-12">
                 <div class="card" id="card-container">
                     <div class="card-body" id="card">
-                    <% if (organizations.length == 0) { %> 
-                        <h1 style="margin-top: 5rem;">No Organizations found!</h1>
+                    <% if (researchers.length == 0) { %> 
+                        <h1 style="margin-top: 5rem;">No Researchers found!</h1>
                     <% } else { %>
                         <div class="table-responsive">
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th>ID</th>
-                                        <th>Name</th>
-                                        <th>Abbreviation</th>
-                                        <th>Street Name</th>
-                                        <th>Street Number</th>
-                                        <th>Postal Code</th>
-                                        <th>City</th>
+                                        <th>Researchers ID</th>
+                                        <th>First Name</th>
+                                        <th>Last Name</th>
+                                        <th>Gender</th>
+                                        <th>Birth Date</th>
+                                        <th>Email</th>
                                         <th></th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <% organizations.forEach((organizations, _) => { %>
+                                    <% researchers.forEach((researchers, _) => { %>
                                         <tr>
-                                            <td><%= organizations.organization_id %></td>
-                                            <td><%= organizations.name %></td>
-                                            <td><%= organizations.abbreviation %></td>
-                                            <td><%= organizations.street %></td>
-                                            <td><%= organizations.number %></td>
-                                            <td><%= organizations.postal_code %></td>
-                                            <td><%= organizations.city %></td>
+                                            <td><%= researchers.researcher_id %></td>
+                                            <td><%= researchers.first_name %></td>
+                                            <td><%= researchers.last_name %></td>
+                                            <td><%= researchers.gender %></td>
+                                            <td><%= researchers.birth_date %></td>
+                                            <td><%= researchers.email %></td>
                                             <td>
                                                 <a type="button" onclick="setModalFields(this)"
                                                     data-toggle="modal" 
-                                                    data-organization_id="<%= organizations.organization_id %>"
-                                                    data-name="<%= organizations.name %>" 
-                                                    data-abbrevation="<%= organizations.abbreviation %>"
-                                                    data-street="<%= organizations.street %>" 
-                                                    data-number="<%= organizations.number %>"
-                                                    data-postal_code="<%= organizations.postal_code %>" 
-                                                    data-city="<%= organizations.city %>"
+                                                    data-researcher_id="<%= researchers.researcher_id %>"
+                                                    data-first_name="<%= researchers.first_name %>" 
+                                                    data-last_name="<%= researchers.last_name %>"
+                                                    data-gender="<%= researchers.gender %>" 
+                                                    data-birth_date="<%= researchers.birth_date %>"
+                                                    data-email="<%= researchers.email %>" 
                                                     data-target="#editModal">
                                                     <i class="fa fa-edit"></i>
                                                 </a>
                                             </td>
-                                            <form method="POST" action="/organizations/delete/<%= organizations.organization_id %>">
+                                            <form method="POST" action="/researchers/delete/<%= researchers.researcher_id %>">
                                                 <td> 
                                                     <button style="all: unset; cursor: pointer;" type="submit"><i class="fa fa-trash"></i></button>
                                                 </td>
@@ -111,15 +107,14 @@
 
     <script>
         function setModalFields(row) {
-            document.getElementById("organization_id").value = row.dataset.organization_id;
-            document.getElementById("name").value = row.dataset.name;
-            document.getElementById("abbreviation").value = row.dataset.abbreviation;
-            document.getElementById("street").value = row.dataset.street;
-            document.getElementById("number").value = row.dataset.number;
-            document.getElementById("postal_code").value = row.dataset.postal_code;
-            document.getElementById("city").value = row.dataset.city;
+            document.getElementById("researcher_id").value = row.dataset.researcher_id;
+            document.getElementById("first_name").value = row.dataset.first_name;
+            document.getElementById("last_name").value = row.dataset.last_name;
+            document.getElementById("gender").value = row.dataset.gender;
+            document.getElementById("birth_date").value = row.dataset.birth_date;
+            document.getElementById("email").value = row.dataset.email;
 
-            document.getElementById("modal-form").action = "/organizations/update/" + row.dataset.organization_id;
+            document.getElementById("modal-form").action = "/researcher_id/update/" + row.dataset.researcher_id;
             document.getElementById("modal-form").method = "POST";
         }
     </script>

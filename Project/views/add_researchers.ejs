@@ -16,30 +16,26 @@
     <div class="container">
         <div class="row" id="row">
             <div class="col-md-12">
-                <form class="form-horizontal" name="organizations-form" action="/organizations/add" method="POST">
+                <form class="form-horizontal" name="researchers-form" action="/researchers/add" method="POST">
                     <div class="form-group col-sm-3 mb-3">
-                        <label for="name">Name</label>
-                        <input type="text" class="form-control" name="name" placeholder="Enter Name">
+                        <label for="firts_name">First Name</label>
+                        <input type="text" class="form-control" name="first_name" placeholder="Enter First Name">
                     </div>
                     <div class="form-group col-sm-3 mb-3">
-                        <label for="abbreviation">Abbreviation</label>
-                        <input type="text" class="form-control" name="abbreviation" placeholder="Enter Abbreviation">
+                        <label for="last_name">Last Name</label>
+                        <input type="text" class="form-control" name="last_name" placeholder="Enter Last Name">
                     </div>
                     <div class="form-group col-sm-3 mb-3">
-                        <label for="street">Street</label>
-                        <input type="text" class="form-control" name="street" placeholder="Enter Street">
+                        <label for="gender">Gender</label>
+                        <input type="text" class="form-control" name="gender" placeholder="Enter Gender">
                     </div>
                     <div class="form-group col-sm-3 mb-3">
-                        <label for="number">Number</label>
-                        <input type="text" class="form-control" name="number" placeholder="Enter Street Number">
+                        <label for="birth_date">Birth Date (YYYY-MM-DD)</label>
+                        <input type="text" class="form-control" name="birth_date" placeholder="Enter Birth Date">
                     </div>
                     <div class="form-group col-sm-3 mb-3">
-                        <label for="postal_code">Postal Code</label>
-                        <input type="text" class="form-control" name="postal_code" placeholder="Enter Postal Code">
-                    </div>
-                    <div class="form-group col-sm-3 mb-3">
-                        <label for="city">City</label>
-                        <input type="text" class="form-control" name="city" placeholder="Enter city">
+                        <label for="email">Email (ex. abc@ntua.gr)</label>
+                        <input type="text" class="form-control" name="email" placeholder="Enter Email">
                     </div>
                     <button type="submit" class="btn btn-primary btn-submit-custom">ADD</button>
                 </form>

@@ -45,7 +45,6 @@ exports.postDeleteOrganizations = (req, res, next) => {
 exports.postAddOrganizations = (req, res, next) => {
 
     /* get necessary data sent */
-    const organization_id = req.body.organization_id
     const name = req.body.name;
     const abbreviation = req.body.abbreviation;
     const street = req.body.street;
@@ -55,15 +54,15 @@ exports.postAddOrganizations = (req, res, next) => {
 
     /* create the connection, execute query, and redirect*/
     pool.getConnection((err, conn) => {
-        var sqlQuery = `INSERT INTO organizations(organization_id, name, abbreviation, street, number, postal_code, city) VALUES(?, ?, ?, ?, ?, ?, ?)`;
+        var sqlQuery = `INSERT INTO organizations(name, abbreviation, street, number, postal_code, city) VALUES(?, ?, ?, ?, ?, ?)`;
 
-        conn.promise().query(sqlQuery, [organization_id, name, abbreviation, street, number, postal_code, city])
+        conn.promise().query(sqlQuery, [name, abbreviation, street, number, postal_code, city])
         .then(() => {
             pool.releaseConnection(conn);
             res.redirect('/organizations');
         })
         .catch(err => {
-            res.redirect('/404');
+            res.redirect('/organizations');
         })
     })
 }
@@ -73,7 +72,7 @@ exports.postAddOrganizations = (req, res, next) => {
 exports.postUpdateOrganizations = (req, res, next) => {
 
     /* get necessary data sent */
-    const organization_id = req.body.organization_id
+    const organization_id = req.body.organization_id;
     const name = req.body.name;
     const abbreviation = req.body.abbreviation;
     const street = req.body.street;
@@ -83,15 +82,15 @@ exports.postUpdateOrganizations = (req, res, next) => {
 
     /* create the connection, execute query and redirect */
     pool.getConnection((err, conn) => {
-        var sqlQuery = `UPDATE organizations SET organization_id = ?, name = ?, abbreviation = ?, street = ?, number = ?, postal_code = ?, city = ? WHERE organization_id = ${organization_id}`;
+        var sqlQuery = `UPDATE organizations SET name = ?, abbreviation = ?, street = ?, number = ?, postal_code = ?, city = ? WHERE organization_id = ${organization_id}`;
 
-        conn.promise().query(sqlQuery, [organization_id, name, abbreviation, street, number, postal_code, city])
+        conn.promise().query(sqlQuery, [name, abbreviation, street, number, postal_code, city])
         .then(() => {
             pool.releaseConnection(conn);
             res.redirect('/organizations');
         })
         .catch(err => {
-            res.redirect('/404');
+            res.redirect('/organizations');
         })
     })
 }

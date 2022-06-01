@@ -205,7 +205,7 @@ INSERT INTO `evaluating` (`grade`, `date`, `researcher_id`, `project_id`) VALUES
 
 -- Dumping structure for πίνακας elidek.organizations
 CREATE TABLE IF NOT EXISTS `organizations` (
-  `organization_id` int(11) NOT NULL,
+  `organization_id` int NOT NULL AUTO_INCREMENT,
   `name` varchar(150) NOT NULL,
   `abbreviation` varchar(50) NOT NULL,
   `street` varchar(50) NOT NULL,
@@ -213,7 +213,7 @@ CREATE TABLE IF NOT EXISTS `organizations` (
   `postal_code` int(11) NOT NULL CHECK (`postal_code` >= 0 AND `postal_code` <= 99999),
   `city` varchar(50) NOT NULL,
   PRIMARY KEY (`organization_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4;
 
 -- Dumping data for table elidek.organizations: ~40 rows (approximately)
 /*!40000 ALTER TABLE `organizations` DISABLE KEYS */;
@@ -376,11 +376,11 @@ INSERT INTO `organizations_phonenumber` (`number`, `organization_id`) VALUES
 
 -- Dumping structure for πίνακας elidek.program
 CREATE TABLE IF NOT EXISTS `program` (
-  `program_id` int(11) NOT NULL,
+  `program_id` int(11) NOT NULL AUTO_INCREMENT,
   `Name` varchar(100) NOT NULL,
   `Department` varchar(100) NOT NULL,
   PRIMARY KEY (`program_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4;
 
 -- Dumping data for table elidek.program: ~40 rows (approximately)
 /*!40000 ALTER TABLE `program` DISABLE KEYS */;
@@ -429,7 +429,7 @@ INSERT INTO `program` (`program_id`, `Name`, `Department`) VALUES
 
 -- Dumping structure for πίνακας elidek.projects
 CREATE TABLE IF NOT EXISTS `projects` (
-  `project_id` int(11) NOT NULL,
+  `project_id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(100) NOT NULL,
   `summary` varchar(500) NOT NULL,
   `starting_date` date NOT NULL,
@@ -449,7 +449,7 @@ CREATE TABLE IF NOT EXISTS `projects` (
   CONSTRAINT `projects_ibfk_2` FOREIGN KEY (`program_id`) REFERENCES `program` (`program_id`),
   CONSTRAINT `projects_ibfk_3` FOREIGN KEY (`organization_id`) REFERENCES `organizations` (`organization_id`),
   CONSTRAINT `projects_ibfk_4` FOREIGN KEY (`researcher_id`) REFERENCES `researchers` (`researcher_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4;
 
 -- Dumping data for table elidek.projects: ~60 rows (approximately)
 /*!40000 ALTER TABLE `projects` DISABLE KEYS */;
@@ -518,14 +518,14 @@ INSERT INTO `projects` (`project_id`, `title`, `summary`, `starting_date`, `endi
 
 -- Dumping structure for πίνακας elidek.researchers
 CREATE TABLE IF NOT EXISTS `researchers` (
-  `researcher_id` int(11) NOT NULL,
+  `researcher_id` int(11) NOT NULL AUTO_INCREMENT,
   `first_name` varchar(100) NOT NULL,
   `last_name` varchar(100) NOT NULL,
   `gender` varchar(50) NOT NULL,
   `birth_date` date NOT NULL,
   `email` varchar(250) NOT NULL CHECK (`email` LIKE '_%@_%._%'),
   PRIMARY KEY (`researcher_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4;
 
 -- Dumping data for table elidek.researchers: ~120 rows (approximately)
 /*!40000 ALTER TABLE `researchers` DISABLE KEYS */;
@@ -1013,13 +1013,13 @@ INSERT INTO `science_field` (`name`, `project_id`) VALUES
 
 -- Dumping structure for πίνακας elidek.staff
 CREATE TABLE IF NOT EXISTS `staff` (
-  `staff_id` int(11) NOT NULL,
+  `staff_id` int(11) NOT NULL AUTO_INCREMENT,
   `first_name` varchar(100) NOT NULL,
   `last_name` varchar(100) NOT NULL,
   `email` varchar(250) NOT NULL CHECK (`email` LIKE '_%@_%._%'),
   `department` varchar(100) NOT NULL,
   PRIMARY KEY (`staff_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4;
 
 -- Dumping data for table elidek.staff: ~20 rows (approximately)
 /*!40000 ALTER TABLE `staff` DISABLE KEYS */;

@@ -8,6 +8,12 @@ require('custom-env').env('localhost');
 
 const layout = require('./routes/layout');
 const organizations = require('./routes/organizations');
+const projects = require('./routes/projects');
+const researchers = require('./routes/researchers');
+const program = require('./routes/program');
+const deliverables = require('./routes/deliverables');
+const staff = require('./routes/staff');
+const queries = require('./routes/queries');
 
 /* end of ROUTES and how to import routes */
 
@@ -25,6 +31,12 @@ app.set('views', 'views');
 
 app.use('/', layout);
 app.use('/organizations', organizations);
+app.use('/projects', projects);
+app.use('/researchers', researchers);
+app.use('/program', program);
+app.use('/deliverables', deliverables);
+app.use('/staff', staff);
+app.use('/queries', queries);
 
 /* End of routes used by the project */
 

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title> <%= pageTitle %> </title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
+</head>
+
+<body> 
+    
+    <div id="editModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+      
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title">Edit Projects</h4>
+            </div>
+            <div class="modal-body">
+                <form id="modal-form">
+                    <div style="text-align: center;">
+                        <input type="text" name="ID" id="project_id" readonly></br>
+                        <input type="text" name="Title" id="title"></br>
+                        <input type="text" name="Summary" id="summary"></br>
+                        <input type="text" name="Starting Date" id="starting_date"></br>
+                        <input type="text" name="Ending Date" id="ending_date"></br>
+                        <input type="text" name="Funding" id="funding"></br>
+                        <input type="text" name="Duration" id="duration"></br>
+                        <input type="text" name="Managing Staff" id="staff_id"></br>
+                        <input type="text" name="ELIDEK Program" id="program_id"></br>
+                        <input type="text" name="Manging Organization" id="organization_id"></br>
+                        <input type="text" name="Supervising Researcher" id="researcher_id"></br>
+
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" form="modal-form" class="btn btn-success">Update</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+            </div>
+          </div>
+      
+        </div>
+    </div>
+
+    <%- include("includes/navbar.ejs")%>
+
+    <div class="container">
+        <div class="row" id="row">
+            <div class="col-md-200">
+                    <% if (projects.length == 0) { %> 
+                        <h1 style="margin-top: 5rem;">No Projects found!</h1>
+                    <% } else { %>
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Project ID</th>
+                                        <th>Title</th>
+                                        <th>Summary</th>
+                                        <th>Starting Date</th>
+                                        <th>Ending Date</th>
+                                        <th>Funding (EUR)</th>
+                                        <th>Duration (days)</th>
+                                        <th>Managing Staff</th>
+                                        <th>ELIDEK Program</th>
+                                        <th>Managing Organization</th>
+                                        <th>Supervising Researcher</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <% projects.forEach((projects, _) => { %>
+                                        <tr>
+                                            <td><%= projects.project_id %></td>
+                                            <td><%= projects.title %></td>
+                                            <td><%= projects.summary %></td>
+                                            <td><%= projects.starting_date %></td>
+                                            <td><%= projects.ending_date %></td>
+                                            <td><%= projects.funding %></td>
+                                            <td><%= projects.duration %></td>
+                                            <td><%= projects.staff_id %></td>
+                                            <td><%= projects.program_id %></td>
+                                            <td><%= projects.organization_id %></td>
+                                            <td><%= projects.researcher_id %></td>
+                                            <td>
+                                                <a type="button" onclick="setModalFields(this)"
+                                                    data-toggle="modal" 
+                                                    data-project_id="<%= projects.project_id %>"
+                                                    data-title="<%= projects.title %>" 
+                                                    data-summary="<%= projects.summary %>"
+                                                    data-starting_date="<%= projects.starting_date %>" 
+                                                    data-ending_date="<%= projects.ending_date %>"
+                                                    data-funding="<%= projects.funding %>" 
+                                                    data-duration="<%= projects.duration %>"
+                                                    data-staff_id="<%= projects.staff_id %>"
+                                                    data-program_id="<%= projects.program_id %>"
+                                                    data-organization_id="<%= projects.organization_id %>"
+                                                    data-researcher_id="<%= projects.researcher_id %>"
+                                                    data-target="#editModal">
+                                                    <i class="fa fa-edit"></i>
+                                                </a>
+                                            </td>
+                                            <form method="POST" action="/projects/delete/<%= projects.project_id %>">
+                                                <td> 
+                                                    <button style="all: unset; cursor: pointer;" type="submit"><i class="fa fa-trash"></i></button>
+                                                </td>
+                                            </form>
+                                        </tr>
+                                    <% }) %>
+                                </tbody>
+                            </table>
+                        </div>
+                    <% } %>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function setModalFields(row) {
+            document.getElementById("project_id").value = row.dataset.project_id;
+            document.getElementById("title").value = row.dataset.title;
+            document.getElementById("summary").value = row.dataset.summary;
+            document.getElementById("starting_date").value = row.dataset.starting_date;
+            document.getElementById("ending_date").value = row.dataset.ending_date;
+            document.getElementById("funding").value = row.dataset.funding;
+            document.getElementById("duration").value = row.dataset.duration;
+            document.getElementById("staff_id").value = row.dataset.staff_id;
+            document.getElementById("program_id").value = row.dataset.program_id;
+            document.getElementById("organization_id").value = row.dataset.organization_id;
+            document.getElementById("researcher_id").value = row.dataset.researcher_id;
+
+            document.getElementById("modal-form").action = "/projects/update/" + row.dataset.project_id;
+            document.getElementById("modal-form").method = "POST";
+        }
+    </script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+<script src="/assets/js/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+
+
+
+</body>
+
+</html>

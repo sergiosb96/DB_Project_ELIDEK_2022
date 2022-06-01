@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title> <%= pageTitle %> </title>
+    <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="/assets/css/styles.css">
+</head>
+
+<body>
+    
+    <%- include("includes/navbar.ejs")%>
+    <div class="container">
+        <div class="row" id="row">
+            <div class="col-md-12">
+                <form class="form-horizontal" name="deliverables-form" action="/deliverables/add" method="POST">
+                    <div class="form-group col-sm-3 mb-3">
+                        <label for="title">Title</label>
+                        <input type="text" class="form-control" name="title" placeholder="Enter Title">
+                    </div>
+                    <div class="form-group col-sm-3 mb-3">
+                        <label for="summary">Summary</label>
+                        <input type="text" class="form-control" name="summary" placeholder="Enter Summary">
+                    </div>
+                    <div class="form-group col-sm-3 mb-3">
+                        <label for="date">Date (YYYY-MM-DD)</label>
+                        <input type="text" class="form-control" name="date" placeholder="Enter Date">
+                    </div>
+                    <div class="form-group col-sm-3 mb-3">
+                        <label for="project_id">Project ID</label>
+                        <input type="text" class="form-control" name="project_id" placeholder="Enter Project ID">
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-submit-custom">ADD</button>
+                </form>
+        </div>
+    </div>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+</body>
+
+</html>
