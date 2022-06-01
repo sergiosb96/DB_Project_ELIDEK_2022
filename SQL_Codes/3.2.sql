@@ -5,7 +5,7 @@ CREATE VIEW Researcher_Project AS
 first_name, last_name, gender, birth_date, email,
 title AS Working_On
 FROM Researchers
-INNER JOIN Projects ON Researchers.researcher_id = Projects.researcher_id; 
+INNER JOIN Working ON Researchers.researcher_id = Working.researcher_id; 
 
 -- Phone Numbers Per Organisation --
 
