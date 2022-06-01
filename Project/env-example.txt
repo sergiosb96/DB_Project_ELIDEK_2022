@@ -4,3 +4,5 @@ DB_PORT=3306
 DB_USER=user
 DB_PASS=password
 DB=database
+
+Rename it to .env.localhost
