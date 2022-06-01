@@ -9,7 +9,7 @@ INNER JOIN Projects ON Researchers.researcher_id = Projects.researcher_id;
 
 -- Phone Numbers Per Organisation --
 
-CREATE VIEW Organizations_PhoneNumber AS 
+CREATE VIEW Organizations_PhoneNumbers AS 
  SELECT  
 Organizations.name as 'Name', Organizations.abbreviation AS 'Abbreviation', organizations_phonenumber.number AS 'Phone Numbers'
 FROM Organizations
