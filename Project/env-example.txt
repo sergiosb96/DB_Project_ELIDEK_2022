@@ -5,4 +5,4 @@ DB_USER=user
 DB_PASS=password
 DB=database
 
-Rename it to .env.localhost
+Rename this file to ".env.localhost"

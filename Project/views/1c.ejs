@@ -15,37 +15,45 @@
     
     <%- include("includes/navbar.ejs")%>
 
-                <div class="container-fluid">
-                    <% if (deliverables.length == 0) { %> 
-                        <h1 style="margin-top: 5rem;">No Deliverables found!</h1>
+    <div class="container">
+        <div class="row" id="row">
+            <div class="col-md-12">
+                <div class="card" id="card-container">
+                    <div class="card-body" id="card">
+                    <% if (query1c.length == 0) { %> 
+                        <h1 style="margin-top: 5rem;">No Results found!</h1>
                     <% } else { %>
-                        <br>
                         <div class="table-responsive">
-                            <table class="table table-striped table-bordered table-hover">
-                                <thead class="thead-dark">
+                            <table class="table">
+                                <thead>
                                     <tr>
-                                        <th>Title</th>
-                                        <th>Summary</th>
-                                        <th>Date</th>
-                                        <th>Project ID</th>
+                                        <th>Researcher Name</th>
+                                        <th>Working On</th>
+                                        <th>Working Since</th>
+                                        <th>Project Duration (in days)</th>
+                                        <th>Funded by</th>
                                         <th></th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <% deliverables.forEach((deliverables, _) => { %>
+                                    <% query1c.forEach((query1c, _) => { %>
                                         <tr>
-                                            <td><%= deliverables.title %></td>
-                                            <td><%= deliverables.summary %></td>
-                                            <td><%= deliverables.date %></td>
-                                            <td><%= deliverables.project_id %></td>
+                                            <td><%= query1c.Full_Name %></td>
+                                            <td><%= query1c.Working_On %></td>
+                                            <td><%= query1c.Working_Since %></td>
+                                            <td><%= query1c.Project_Duration_In_Days %></td>
+                                            <td><%= query1c.Funded_By %></td>
                                         </tr>
                                     <% }) %>
                                 </tbody>
                             </table>
                         </div>
                     <% } %>
+                    </div>
                 </div>
-
+            </div>
+        </div>
+    </div>
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
