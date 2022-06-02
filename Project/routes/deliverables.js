@@ -3,8 +3,8 @@ const deliverablesController = require('../controllers/deliverables');
 
 const router = express.Router();
 
-router.get('/', deliverablesController.getDeliverables);                      //done
-router.post('/add', deliverablesController.postAddDeliverables);              //done
+router.get('/', deliverablesController.getDeliverables);
+router.post('/add', deliverablesController.postAddDeliverables);
 
 
 module.exports = router;

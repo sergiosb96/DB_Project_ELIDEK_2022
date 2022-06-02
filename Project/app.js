@@ -13,6 +13,7 @@ const researchers = require('./routes/researchers');
 const program = require('./routes/program');
 const deliverables = require('./routes/deliverables');
 const staff = require('./routes/staff');
+const evaluating = require('./routes/evaluating');
 const queries = require('./routes/queries');
 
 /* end of ROUTES and how to import routes */
@@ -36,6 +37,7 @@ app.use('/researchers', researchers);
 app.use('/program', program);
 app.use('/deliverables', deliverables);
 app.use('/staff', staff);
+app.use('/evaluating', evaluating);
 app.use('/queries', queries);
 
 /* End of routes used by the project */

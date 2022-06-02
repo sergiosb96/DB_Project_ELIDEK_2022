@@ -5,9 +5,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title> <%= pageTitle %> </title>
-    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="/assets/css/styles.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
 </head>
 
@@ -37,8 +37,8 @@
                                     <% program.forEach((program, _) => { %>
                                         <tr>
                                             <td><%= program.program_id %></td>
-                                            <td><%= program.name %></td>
-                                            <td><%= program.department %></td>
+                                            <td><%= program.Name %></td>
+                                            <td><%= program.Department %></td>
                                         </tr>
                                     <% }) %>
                                 </tbody>

@@ -3,10 +3,10 @@ const organizationsController = require('../controllers/organizations');
 
 const router = express.Router();
 
-router.get('/', organizationsController.getOrganizations);                      //done
-router.post('/delete/:id', organizationsController.postDeleteOrganizations);    //done
-router.post('/update/:organization_id', organizationsController.postUpdateOrganizations);    //ongoing
-router.post('/add', organizationsController.postAddOrganizations);              //done
+router.get('/', organizationsController.getOrganizations);
+router.post('/delete/:id', organizationsController.postDeleteOrganizations);
+router.post('/update/:organization_id', organizationsController.postUpdateOrganizations);
+router.post('/add', organizationsController.postAddOrganizations);
 
 
 module.exports = router;

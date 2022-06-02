@@ -24,12 +24,12 @@
             <div class="modal-body">
                 <form id="modal-form">
                     <div style="text-align: center;">
-                        <input type="text" name="Researcher ID" id="researcher_id" readonly></br>
-                        <input type="text" name="First Name" id="first_name"></br>
-                        <input type="text" name="Last Name" id="last_name"></br>
-                        <input type="text" name="Gender" id="gender"></br>
-                        <input type="text" name="Birth Date" id="birth_date"></br>
-                        <input type="text" name="Email" id="email">
+                        <input type="text" name="researcher_id" id="researcher_id" readonly></br>
+                        <input type="text" name="first_name" id="first_name"></br>
+                        <input type="text" name="last_name" id="last_name"></br>
+                        <input type="text" name="gender" id="gender"></br>
+                        <input type="text" name="birth_date" id="birth_date"></br>
+                        <input type="text" name="email" id="email">
 
                     </div>
                 </form>
@@ -70,7 +70,7 @@
                                             <td><%= researchers.first_name %></td>
                                             <td><%= researchers.last_name %></td>
                                             <td><%= researchers.gender %></td>
-                                            <td><%= researchers.birth_date %></td>
+                                            <td><%= (researchers.birth_date).toLocaleDateString() %></td>
                                             <td><%= researchers.email %></td>
                                             <td>
                                                 <a type="button" onclick="setModalFields(this)"
@@ -107,7 +107,7 @@
             document.getElementById("birth_date").value = row.dataset.birth_date;
             document.getElementById("email").value = row.dataset.email;
 
-            document.getElementById("modal-form").action = "/researcher_id/update/" + row.dataset.researcher_id;
+            document.getElementById("modal-form").action = "/researchers/update/" + row.dataset.researcher_id;
             document.getElementById("modal-form").method = "POST";
         }
     </script>

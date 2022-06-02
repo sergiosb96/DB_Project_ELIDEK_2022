@@ -36,7 +36,7 @@
                                         <tr>
                                             <td><%= deliverables.title %></td>
                                             <td><%= deliverables.summary %></td>
-                                            <td><%= deliverables.date %></td>
+                                            <td><%= (deliverables.date).toLocaleDateString() %></td>
                                             <td><%= deliverables.project_id %></td>
                                         </tr>
                                     <% }) %>

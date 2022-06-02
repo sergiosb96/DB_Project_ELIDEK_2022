@@ -24,17 +24,17 @@
             <div class="modal-body">
                 <form id="modal-form">
                     <div style="text-align: center;">
-                        <input type="text" name="ID" id="project_id" readonly></br>
-                        <input type="text" name="Title" id="title"></br>
-                        <input type="text" name="Summary" id="summary"></br>
-                        <input type="text" name="Starting Date" id="starting_date"></br>
-                        <input type="text" name="Ending Date" id="ending_date"></br>
-                        <input type="text" name="Funding" id="funding"></br>
-                        <input type="text" name="Duration" id="duration"></br>
-                        <input type="text" name="Managing Staff" id="staff_id"></br>
-                        <input type="text" name="ELIDEK Program" id="program_id"></br>
-                        <input type="text" name="Manging Organization" id="organization_id"></br>
-                        <input type="text" name="Supervising Researcher" id="researcher_id"></br>
+                        <input type="text" name="project_id" id="project_id" readonly></br>
+                        <input type="text" name="title" id="title"></br>
+                        <input type="text" name="summary" id="summary"></br>
+                        <input type="text" name="starting_date" id="starting_date"></br>
+                        <input type="text" name="ending_date" id="ending_date"></br>
+                        <input type="text" name="funding" id="funding"></br>
+                        <input type="text" name="duration" id="duration"></br>
+                        <input type="text" name="staff_id" id="staff_id"></br>
+                        <input type="text" name="program_id" id="program_id"></br>
+                        <input type="text" name="organization_id" id="organization_id"></br>
+                        <input type="text" name="researcher_id" id="researcher_id"></br>
 
                     </div>
                 </form>
@@ -79,8 +79,8 @@
                                             <td><%= projects.project_id %></td>
                                             <td><%= projects.title %></td>
                                             <td><%= projects.summary %></td>
-                                            <td><%= projects.starting_date %></td>
-                                            <td><%= projects.ending_date %></td>
+                                            <td><%= (projects.starting_date).toLocaleDateString() %></td>
+                                            <td><%= (projects.ending_date).toLocaleDateString() %></td>
                                             <td><%= projects.funding %></td>
                                             <td><%= projects.duration %></td>
                                             <td><%= projects.staff_id %></td>

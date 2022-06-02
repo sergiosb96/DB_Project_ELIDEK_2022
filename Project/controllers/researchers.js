@@ -74,7 +74,7 @@ exports.postUpdateResearchers = (req, res, next) => {
     const researcher_id = req.body.researcher_id;
     const first_name = req.body.first_name;
     const last_name = req.body.last_name;
-    const gender = req.body.v;
+    const gender = req.body.gender;
     const birth_date = req.body.birth_date;
     const email = req.body.email;
 

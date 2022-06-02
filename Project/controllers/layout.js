@@ -50,3 +50,11 @@ exports.getCreateDeliverables = (req, res, next) => {
         pageTitle: "Deliverables Creation Page"
     })
 }
+
+
+/* Controller to render data shown in create evaluating page */
+exports.getCreateEvaluating = (req, res, next) => {
+    res.render('add_evaluating.ejs', {
+        pageTitle: "Evaluation Creation Page"
+    })
+}
