@@ -6,7 +6,7 @@ exports.getEvaluating = (req, res, next) => {
     /* create the connection, execute query, render data */
     pool.getConnection((err, conn) => {
         
-        conn.promise().query('SELECT * FROM evaluating')
+        conn.promise().query('SELECT * FROM `elidek`.`evaluating` ORDER BY `project_id` ASC LIMIT 1000;')
         .then(([rows, fields]) => {
             res.render('evaluating.ejs', {
                 pageTitle: "Evaluating",

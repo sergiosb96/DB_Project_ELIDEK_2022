@@ -28,19 +28,18 @@
                             <table class="table">
                                 <thead class="thead-dark">
                                     <tr>
-                                        <th>Title</th>
-                                        <th>Date</th>
                                         <th>Project ID</th>
+                                        <th>Gade</th>
+                                        <th>Date</th>
                                         <th>Researcher ID</th>
-                                        <th></th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <% evaluating.forEach((evaluating, _) => { %>
                                         <tr>
+                                            <td><%= evaluating.project_id %></td>
                                             <td><%= evaluating.grade %></td>
                                             <td><%= (evaluating.date).toLocaleDateString() %></td>
-                                            <td><%= evaluating.project_id %></td>
                                             <td><%= evaluating.researcher_id %></td>
                                         </tr>
                                     <% }) %>
