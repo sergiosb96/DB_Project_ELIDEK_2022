@@ -12,6 +12,6 @@ INNER JOIN Projects ON Projects.project_id = Working.project_id;
 
 CREATE VIEW Organizations_PhoneNumbers AS 
  SELECT  
-Organizations.name as 'Name', Organizations.abbreviation AS 'Abbreviation', organizations_phonenumber.number AS 'Phone Numbers'
+Organizations.name as 'Name', Organizations.abbreviation AS 'Abbreviation', organizations_phonenumber.number AS 'Phone_Numbers'
 FROM Organizations
 INNER JOIN organizations_phonenumber ON  Organizations.organization_id = organizations_phonenumber.organization_id;
