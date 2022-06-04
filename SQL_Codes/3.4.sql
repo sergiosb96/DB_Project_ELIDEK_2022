@@ -8,5 +8,5 @@ FROM
     FROM organizations
  	  INNER JOIN projects ON organizations.organization_id = projects.organization_id
     GROUP BY organization_id, year) AS B
-WHERE A.organization_id = B.organization_id AND A.Year=B.Year+1 AND A.total_projects=B.total_projects 
+WHERE A.organization_id = B.organization_id AND B.Year=A.Year+1 AND A.total_projects=B.total_projects 
 GROUP BY A.name;
