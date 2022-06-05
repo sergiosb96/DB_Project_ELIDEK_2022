@@ -17,8 +17,6 @@
 CREATE DATABASE IF NOT EXISTS `elidek` /*!40100 DEFAULT CHARACTER SET utf8mb4 */;
 USE `elidek`;
 
-SET FOREIGN_KEY_CHECKS=0;
-
 -- Dumping structure for πίνακας elidek.companies
 CREATE TABLE IF NOT EXISTS `companies` (
   `private_budget` float NOT NULL,
@@ -128,7 +126,7 @@ INSERT INTO `deliverables` (`title`, `summary`, `date`, `project_id`) VALUES
 
 -- Dumping structure for πίνακας elidek.evaluating
 CREATE TABLE IF NOT EXISTS `evaluating` (
-  `grade` int(11) NOT NULL CHECK (`grade` >= 0 AND `grade` <= 10),
+  `grade` int(11) NOT NULL CHECK (`grade` >= 0 and `grade` <= 10),
   `date` date NOT NULL,
   `researcher_id` int(11) NOT NULL,
   `project_id` int(11) NOT NULL,
@@ -196,24 +194,24 @@ INSERT INTO `evaluating` (`grade`, `date`, `researcher_id`, `project_id`) VALUES
 	(9, '2018-01-05', 111, 42),
 	(6, '2017-06-04', 113, 15),
 	(10, '2018-07-01', 113, 59),
-	(9, '2019-03-05', 114, 40),
+	(2, '2017-12-13', 114, 7),
 	(6, '2017-11-29', 115, 34),
 	(1, '2017-06-09', 117, 45),
 	(7, '2018-04-21', 119, 57),
-	(2, '2017-12-13', 120, 7);
+	(9, '2019-03-05', 120, 40);
 /*!40000 ALTER TABLE `evaluating` ENABLE KEYS */;
 
 -- Dumping structure for πίνακας elidek.organizations
 CREATE TABLE IF NOT EXISTS `organizations` (
-  `organization_id` int NOT NULL AUTO_INCREMENT,
+  `organization_id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(150) NOT NULL,
   `abbreviation` varchar(50) NOT NULL,
   `street` varchar(50) NOT NULL,
   `number` int(11) NOT NULL,
-  `postal_code` int(11) NOT NULL CHECK (`postal_code` >= 0 AND `postal_code` <= 99999),
+  `postal_code` int(11) NOT NULL CHECK (`postal_code` >= 0 and `postal_code` <= 99999),
   `city` varchar(50) NOT NULL,
   PRIMARY KEY (`organization_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=41 DEFAULT CHARSET=utf8mb4;
 
 -- Dumping data for table elidek.organizations: ~40 rows (approximately)
 /*!40000 ALTER TABLE `organizations` DISABLE KEYS */;
@@ -262,7 +260,7 @@ INSERT INTO `organizations` (`organization_id`, `name`, `abbreviation`, `street`
 
 -- Dumping structure for πίνακας elidek.organizations_phonenumber
 CREATE TABLE IF NOT EXISTS `organizations_phonenumber` (
-  `number` bigint(20) NOT NULL CHECK (`number` >= 0 AND `number` <= 9999999999),
+  `number` bigint(20) NOT NULL CHECK (`number` >= 0 and `number` <= 9999999999),
   `organization_id` int(11) NOT NULL,
   PRIMARY KEY (`number`,`organization_id`),
   KEY `organization_id` (`organization_id`),
@@ -380,7 +378,7 @@ CREATE TABLE IF NOT EXISTS `program` (
   `Name` varchar(100) NOT NULL,
   `Department` varchar(100) NOT NULL,
   PRIMARY KEY (`program_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=41 DEFAULT CHARSET=utf8mb4;
 
 -- Dumping data for table elidek.program: ~40 rows (approximately)
 /*!40000 ALTER TABLE `program` DISABLE KEYS */;
@@ -434,8 +432,8 @@ CREATE TABLE IF NOT EXISTS `projects` (
   `summary` varchar(500) NOT NULL,
   `starting_date` date NOT NULL,
   `ending_date` date NOT NULL,
-  `funding` float NOT NULL CHECK (`funding` >= 100000 AND `funding` <= 1000000),
-  `duration` int(11) NOT NULL CHECK (`duration` >= 0 AND `duration` <= 1461),
+  `funding` float NOT NULL CHECK (`funding` >= 100000 and `funding` <= 1000000),
+  `duration` int(11) NOT NULL CHECK (`duration` >= 0 and `duration` <= 1461),
   `staff_id` int(11) NOT NULL,
   `program_id` int(11) NOT NULL,
   `organization_id` int(11) NOT NULL,
@@ -449,9 +447,9 @@ CREATE TABLE IF NOT EXISTS `projects` (
   CONSTRAINT `projects_ibfk_2` FOREIGN KEY (`program_id`) REFERENCES `program` (`program_id`),
   CONSTRAINT `projects_ibfk_3` FOREIGN KEY (`organization_id`) REFERENCES `organizations` (`organization_id`),
   CONSTRAINT `projects_ibfk_4` FOREIGN KEY (`researcher_id`) REFERENCES `researchers` (`researcher_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=84 DEFAULT CHARSET=utf8mb4;
 
--- Dumping data for table elidek.projects: ~60 rows (approximately)
+-- Dumping data for table elidek.projects: ~83 rows (approximately)
 /*!40000 ALTER TABLE `projects` DISABLE KEYS */;
 INSERT INTO `projects` (`project_id`, `title`, `summary`, `starting_date`, `ending_date`, `funding`, `duration`, `staff_id`, `program_id`, `organization_id`, `researcher_id`) VALUES
 	(1, 'Y-Solowarm', 'In hac habitasse platea dictumst. Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante. Nulla justo.', '2020-03-09', '2023-07-21', 175212, 1229, 6, 7, 5, 24),
@@ -513,7 +511,30 @@ INSERT INTO `projects` (`project_id`, `title`, `summary`, `starting_date`, `endi
 	(57, 'Cardify', 'Morbi non quam nec dui luctus rutrum. Nulla tellus. In sagittis dui vel nisl.', '2021-02-02', '2022-01-08', 247623, 340, 17, 7, 26, 87),
 	(58, 'Threepigs', 'Aliquam non mauris.', '2020-12-07', '2023-06-30', 138107, 935, 9, 21, 27, 92),
 	(59, 'Bitchip', 'Phasellus in felis. Donec semper sapien a libero. Nam dui.', '2019-10-25', '2021-04-19', 299705, 542, 5, 8, 20, 108),
-	(60, 'Gembucket', 'Donec vitae nisi. Nam ultrices, libero non mattis pulvinar, nulla pede ullamcorper augue, a suscipit nulla elit ac nulla. Sed vel enim sit amet nunc viverra dapibus.', '2020-10-31', '2022-04-03', 397895, 519, 4, 11, 37, 108);
+	(60, 'Gembucket', 'Donec vitae nisi. Nam ultrices, libero non mattis pulvinar, nulla pede ullamcorper augue, a suscipit nulla elit ac nulla. Sed vel enim sit amet nunc viverra dapibus.', '2020-10-31', '2022-04-03', 397895, 519, 4, 11, 37, 108),
+	(61, 'Flowdeskar', 'Nulla suscipit ligula in lacus.', '2020-01-21', '2022-10-15', 730961, 998, 3, 5, 40, 53),
+	(62, 'Matter', 'Suspendisse accumsan tortor quis turpis. Sed ante. Vivamus tortor. Duis mattis egestas metus.', '2020-10-30', '2022-03-11', 469213, 497, 4, 29, 40, 93),
+	(63, 'Testing', 'Morbi porttitor lorem id ligula. Suspendisse ornare consequat lectus. In est risus, auctor sed, tristique in, tempus sit amet, sem.', '2020-06-23', '2022-12-17', 859414, 907, 11, 35, 40, 65),
+	(64, 'Tooless', 'Vestibulum rutrum rutrum neque. Aenean auctor gravida sem. Praesent id massa id nisl venenatis lacinia. Aenean sit amet justo.', '2020-08-27', '2022-08-05', 699174, 708, 2, 30, 40, 80),
+	(65, 'Helloness', 'Pellentesque eget nunc.', '2020-09-20', '2022-11-28', 585658, 799, 6, 20, 40, 73),
+	(66, 'Awareness', 'Quisque erat eros, viverra eget, congue eget, semper rutrum, nulla. Nunc purus. Phasellus in felis.', '2020-11-14', '2022-07-20', 594093, 613, 9, 12, 40, 87),
+	(67, 'Tinted', 'Duis aliquam convallis nunc. Proin at turpis a pede posuere nonummy.', '2020-06-07', '2022-08-18', 185605, 802, 12, 35, 40, 30),
+	(68, 'Fixed', 'In hac habitasse platea dictumst. Etiam faucibus cursus urna.', '2020-05-02', '2022-11-05', 242537, 917, 13, 2, 40, 6),
+	(69, 'X-find', 'Praesent blandit. Nam nulla.', '2020-01-23', '2022-05-18', 646809, 846, 19, 25, 40, 71),
+	(70, 'Eatly', 'Pellentesque ultrices mattis odio.', '2020-10-30', '2022-11-05', 707462, 736, 6, 36, 40, 26),
+	(71, 'Solarium', 'Curabitur at ipsum ac tellus semper interdum.', '2021-12-14', '2022-01-19', 983042, 36, 1, 25, 40, 25),
+	(72, 'Solomon', 'In hac habitasse platea dictumst. Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante. Nulla justo.', '2021-03-09', '2022-07-21', 175212, 499, 7, 7, 40, 79),
+	(73, 'Triple', 'Maecenas tristique, est et tempus semper, est quam pharetra magna, ac consequat metus sapien ut nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris viverra diam vitae quam. Suspendisse potenti.', '2021-01-15', '2023-12-28', 369787, 1077, 2, 6, 40, 22),
+	(74, 'Opa', 'Suspendisse ornare consequat lectus. In est risus, auctor sed, tristique in, tempus sit amet, sem. Fusce consequat. Nulla nisl.', '2021-05-18', '2023-04-28', 565458, 710, 19, 26, 40, 19),
+	(75, 'Ventus', 'Nam congue, risus semper porta volutpat, quam pede lobortis ligula, sit amet eleifend pede libero quis orci. Nullam molestie nibh in lectus. Pellentesque at nulla. Suspendisse potenti.', '2021-12-09', '2023-12-03', 613546, 724, 18, 9, 40, 94),
+	(76, 'Temper', 'Vivamus in felis eu sapien cursus vestibulum.', '2021-11-14', '2023-04-20', 645769, 522, 9, 13, 40, 76),
+	(77, 'Pannini', 'Morbi vel lectus in quam fringilla rhoncus. Mauris enim leo, rhoncus sed, vestibulum sit amet, cursus id, turpis.', '2021-02-15', '2023-12-28', 332861, 1046, 17, 6, 40, 107),
+	(78, 'Loren', 'Nam dui. Proin leo odio, porttitor id, consequat in, consequat ut, nulla. Sed accumsan felis. Ut at dolor quis odio consequat varius.', '2021-12-25', '2023-12-28', 447308, 733, 16, 23, 40, 17),
+	(79, 'Baba', 'Phasellus id sapien in sapien iaculis congue. Vivamus metus arcu, adipiscing molestie, hendrerit at, vulputate vitae, nisl. Aenean lectus. Pellentesque eget nunc.', '2021-11-25', '2023-03-23', 718206, 483, 12, 29, 40, 95),
+	(80, 'Loststring', 'Morbi non quam nec dui luctus rutrum.', '2021-09-11', '2023-10-20', 516530, 769, 20, 4, 40, 64),
+	(81, 'Wrapping', 'Duis aliquam convallis nunc. Proin at turpis a pede posuere nonummy. Integer non velit. Donec diam neque, vestibulum eget, vulputate ut, ultrices vel, augue.', '2021-11-08', '2023-02-05', 785747, 454, 16, 13, 40, 51),
+	(82, 'Tacos', 'Nam ultrices, libero non mattis pulvinar, nulla pede ullamcorper augue, a suscipit nulla elit ac nulla. Sed vel enim sit amet nunc viverra dapibus.', '2021-09-05', '2023-02-02', 952130, 515, 15, 19, 40, 87),
+	(83, 'Macrosoftex', 'Suspendisse potenti. Nullam porttitor lacus at turpis.', '2021-10-08', '2023-05-26', 508597, 595, 2, 14, 40, 2);
 /*!40000 ALTER TABLE `projects` ENABLE KEYS */;
 
 -- Dumping structure for πίνακας elidek.researchers
@@ -523,9 +544,9 @@ CREATE TABLE IF NOT EXISTS `researchers` (
   `last_name` varchar(100) NOT NULL,
   `gender` varchar(50) NOT NULL,
   `birth_date` date NOT NULL,
-  `email` varchar(250) NOT NULL CHECK (`email` LIKE '_%@_%._%'),
+  `email` varchar(250) NOT NULL CHECK (`email` like '_%@_%._%'),
   PRIMARY KEY (`researcher_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=121 DEFAULT CHARSET=utf8mb4;
 
 -- Dumping data for table elidek.researchers: ~120 rows (approximately)
 /*!40000 ALTER TABLE `researchers` DISABLE KEYS */;
@@ -654,7 +675,7 @@ INSERT INTO `researchers` (`researcher_id`, `first_name`, `last_name`, `gender`,
 
 -- Dumping structure for πίνακας elidek.researcher_phonenumber
 CREATE TABLE IF NOT EXISTS `researcher_phonenumber` (
-  `number` bigint(20) NOT NULL CHECK (`number` >= 0 AND `number` <= 9999999999),
+  `number` bigint(20) NOT NULL CHECK (`number` >= 0 and `number` <= 9999999999),
   `researcher_id` int(11) NOT NULL,
   PRIMARY KEY (`number`,`researcher_id`),
   KEY `researcher_id` (`researcher_id`),
@@ -1016,10 +1037,10 @@ CREATE TABLE IF NOT EXISTS `staff` (
   `staff_id` int(11) NOT NULL AUTO_INCREMENT,
   `first_name` varchar(100) NOT NULL,
   `last_name` varchar(100) NOT NULL,
-  `email` varchar(250) NOT NULL CHECK (`email` LIKE '_%@_%._%'),
+  `email` varchar(250) NOT NULL CHECK (`email` like '_%@_%._%'),
   `department` varchar(100) NOT NULL,
   PRIMARY KEY (`staff_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4;
 
 -- Dumping data for table elidek.staff: ~20 rows (approximately)
 /*!40000 ALTER TABLE `staff` DISABLE KEYS */;
@@ -1081,7 +1102,7 @@ CREATE TABLE IF NOT EXISTS `working` (
   CONSTRAINT `working_ibfk_2` FOREIGN KEY (`project_id`) REFERENCES `projects` (`project_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- Dumping data for table elidek.working: ~1.212 rows (approximately)
+-- Dumping data for table elidek.working: ~1.235 rows (approximately)
 /*!40000 ALTER TABLE `working` DISABLE KEYS */;
 INSERT INTO `working` (`researcher_id`, `project_id`) VALUES
 	(1, 4),
@@ -1106,6 +1127,7 @@ INSERT INTO `working` (`researcher_id`, `project_id`) VALUES
 	(2, 40),
 	(2, 44),
 	(2, 50),
+	(2, 83),
 	(3, 1),
 	(3, 2),
 	(3, 8),
@@ -1149,6 +1171,7 @@ INSERT INTO `working` (`researcher_id`, `project_id`) VALUES
 	(6, 28),
 	(6, 37),
 	(6, 39),
+	(6, 68),
 	(7, 5),
 	(7, 8),
 	(7, 11),
@@ -1258,6 +1281,7 @@ INSERT INTO `working` (`researcher_id`, `project_id`) VALUES
 	(17, 32),
 	(17, 37),
 	(17, 43),
+	(17, 78),
 	(18, 1),
 	(18, 2),
 	(18, 3),
@@ -1280,6 +1304,7 @@ INSERT INTO `working` (`researcher_id`, `project_id`) VALUES
 	(19, 42),
 	(19, 58),
 	(19, 59),
+	(19, 74),
 	(20, 1),
 	(20, 5),
 	(20, 9),
@@ -1313,6 +1338,7 @@ INSERT INTO `working` (`researcher_id`, `project_id`) VALUES
 	(22, 46),
 	(22, 50),
 	(22, 58),
+	(22, 73),
 	(23, 8),
 	(23, 11),
 	(23, 16),
@@ -1345,6 +1371,7 @@ INSERT INTO `working` (`researcher_id`, `project_id`) VALUES
 	(25, 30),
 	(25, 53),
 	(25, 55),
+	(25, 71),
 	(26, 11),
 	(26, 13),
 	(26, 15),
@@ -1356,6 +1383,7 @@ INSERT INTO `working` (`researcher_id`, `project_id`) VALUES
 	(26, 39),
 	(26, 53),
 	(26, 59),
+	(26, 70),
 	(27, 3),
 	(27, 9),
 	(27, 14),
@@ -1390,6 +1418,7 @@ INSERT INTO `working` (`researcher_id`, `project_id`) VALUES
 	(30, 33),
 	(30, 40),
 	(30, 51),
+	(30, 67),
 	(31, 4),
 	(31, 11),
 	(31, 17),
@@ -1597,6 +1626,7 @@ INSERT INTO `working` (`researcher_id`, `project_id`) VALUES
 	(51, 36),
 	(51, 40),
 	(51, 58),
+	(51, 81),
 	(52, 9),
 	(52, 13),
 	(52, 20),
@@ -1618,6 +1648,7 @@ INSERT INTO `working` (`researcher_id`, `project_id`) VALUES
 	(53, 28),
 	(53, 30),
 	(53, 36),
+	(53, 61),
 	(54, 2),
 	(54, 19),
 	(54, 24),
@@ -1735,6 +1766,7 @@ INSERT INTO `working` (`researcher_id`, `project_id`) VALUES
 	(64, 39),
 	(64, 40),
 	(64, 52),
+	(64, 80),
 	(65, 10),
 	(65, 11),
 	(65, 15),
@@ -1746,6 +1778,7 @@ INSERT INTO `working` (`researcher_id`, `project_id`) VALUES
 	(65, 38),
 	(65, 40),
 	(65, 57),
+	(65, 63),
 	(66, 6),
 	(66, 12),
 	(66, 23),
@@ -1809,6 +1842,7 @@ INSERT INTO `working` (`researcher_id`, `project_id`) VALUES
 	(71, 35),
 	(71, 37),
 	(71, 38),
+	(71, 69),
 	(72, 4),
 	(72, 8),
 	(72, 20),
@@ -1830,6 +1864,7 @@ INSERT INTO `working` (`researcher_id`, `project_id`) VALUES
 	(73, 37),
 	(73, 46),
 	(73, 54),
+	(73, 65),
 	(74, 3),
 	(74, 4),
 	(74, 15),
@@ -1864,6 +1899,7 @@ INSERT INTO `working` (`researcher_id`, `project_id`) VALUES
 	(76, 32),
 	(76, 35),
 	(76, 42),
+	(76, 76),
 	(77, 1),
 	(77, 3),
 	(77, 9),
@@ -1894,6 +1930,7 @@ INSERT INTO `working` (`researcher_id`, `project_id`) VALUES
 	(79, 38),
 	(79, 48),
 	(79, 60),
+	(79, 72),
 	(80, 2),
 	(80, 5),
 	(80, 9),
@@ -1904,6 +1941,7 @@ INSERT INTO `working` (`researcher_id`, `project_id`) VALUES
 	(80, 33),
 	(80, 40),
 	(80, 60),
+	(80, 64),
 	(81, 1),
 	(81, 5),
 	(81, 6),
@@ -1977,6 +2015,8 @@ INSERT INTO `working` (`researcher_id`, `project_id`) VALUES
 	(87, 35),
 	(87, 39),
 	(87, 57),
+	(87, 66),
+	(87, 82),
 	(88, 3),
 	(88, 6),
 	(88, 7),
@@ -2036,6 +2076,7 @@ INSERT INTO `working` (`researcher_id`, `project_id`) VALUES
 	(93, 29),
 	(93, 32),
 	(93, 40),
+	(93, 62),
 	(94, 1),
 	(94, 6),
 	(94, 14),
@@ -2047,11 +2088,13 @@ INSERT INTO `working` (`researcher_id`, `project_id`) VALUES
 	(94, 35),
 	(94, 36),
 	(94, 44),
+	(94, 75),
 	(95, 7),
 	(95, 8),
 	(95, 31),
 	(95, 33),
 	(95, 35),
+	(95, 79),
 	(96, 1),
 	(96, 9),
 	(96, 21),
@@ -2174,6 +2217,7 @@ INSERT INTO `working` (`researcher_id`, `project_id`) VALUES
 	(107, 35),
 	(107, 39),
 	(107, 54),
+	(107, 77),
 	(108, 7),
 	(108, 9),
 	(108, 13),
@@ -2433,8 +2477,6 @@ INSERT INTO `working_relationship` (`starting_date`, `researcher_id`, `organizat
 	('2016-10-03', 119, 29),
 	('2010-07-16', 120, 23);
 /*!40000 ALTER TABLE `working_relationship` ENABLE KEYS */;
-
-SET FOREIGN_KEY_CHECKS=1;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
 /*!40014 SET FOREIGN_KEY_CHECKS=IFNULL(@OLD_FOREIGN_KEY_CHECKS, 1) */;
