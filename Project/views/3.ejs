@@ -39,8 +39,8 @@
                                     <% query3.forEach((query3, _) => { %>
                                         <tr>
                                             <td><%= query3.title %></td>
-                                            <td><%= query3.starting_date %></td>
-                                            <td><%= query3.ending_date %></td>
+                                            <td><%= (query3.starting_date).toLocaleDateString() %></td>
+                                            <td><%= (query3.ending_date).toLocaleDateString() %></td>
                                             <td><%= query3.name %></td>
                                             <td><%= query3.last_name %></td>
                                             <td><%= query3.first_name %></td>
