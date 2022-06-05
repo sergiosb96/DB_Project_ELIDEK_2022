@@ -111,7 +111,7 @@ CREATE TABLE IF NOT EXISTS `projects` (
   CONSTRAINT `projects_ibfk_2` FOREIGN KEY (`program_id`) REFERENCES `program` (`program_id`),
   CONSTRAINT `projects_ibfk_3` FOREIGN KEY (`organization_id`) REFERENCES `organizations` (`organization_id`),
   CONSTRAINT `projects_ibfk_4` FOREIGN KEY (`researcher_id`) REFERENCES `researchers` (`researcher_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=84 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=79 DEFAULT CHARSET=utf8mb4;
 
 -- Data exporting was unselected.
 

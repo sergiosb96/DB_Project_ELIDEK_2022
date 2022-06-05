@@ -447,7 +447,7 @@ CREATE TABLE IF NOT EXISTS `projects` (
   CONSTRAINT `projects_ibfk_2` FOREIGN KEY (`program_id`) REFERENCES `program` (`program_id`),
   CONSTRAINT `projects_ibfk_3` FOREIGN KEY (`organization_id`) REFERENCES `organizations` (`organization_id`),
   CONSTRAINT `projects_ibfk_4` FOREIGN KEY (`researcher_id`) REFERENCES `researchers` (`researcher_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=84 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=79 DEFAULT CHARSET=utf8mb4;
 
 -- Dumping data for table elidek.projects: ~83 rows (approximately)
 /*!40000 ALTER TABLE `projects` DISABLE KEYS */;
@@ -529,12 +529,7 @@ INSERT INTO `projects` (`project_id`, `title`, `summary`, `starting_date`, `endi
 	(75, 'Ventus', 'Nam congue, risus semper porta volutpat, quam pede lobortis ligula, sit amet eleifend pede libero quis orci. Nullam molestie nibh in lectus. Pellentesque at nulla. Suspendisse potenti.', '2021-12-09', '2023-12-03', 613546, 724, 18, 9, 40, 94),
 	(76, 'Temper', 'Vivamus in felis eu sapien cursus vestibulum.', '2021-11-14', '2023-04-20', 645769, 522, 9, 13, 40, 76),
 	(77, 'Pannini', 'Morbi vel lectus in quam fringilla rhoncus. Mauris enim leo, rhoncus sed, vestibulum sit amet, cursus id, turpis.', '2021-02-15', '2023-12-28', 332861, 1046, 17, 6, 40, 107),
-	(78, 'Loren', 'Nam dui. Proin leo odio, porttitor id, consequat in, consequat ut, nulla. Sed accumsan felis. Ut at dolor quis odio consequat varius.', '2021-12-25', '2023-12-28', 447308, 733, 16, 23, 40, 17),
-	(79, 'Baba', 'Phasellus id sapien in sapien iaculis congue. Vivamus metus arcu, adipiscing molestie, hendrerit at, vulputate vitae, nisl. Aenean lectus. Pellentesque eget nunc.', '2021-11-25', '2023-03-23', 718206, 483, 12, 29, 40, 95),
-	(80, 'Loststring', 'Morbi non quam nec dui luctus rutrum.', '2021-09-11', '2023-10-20', 516530, 769, 20, 4, 40, 64),
-	(81, 'Wrapping', 'Duis aliquam convallis nunc. Proin at turpis a pede posuere nonummy. Integer non velit. Donec diam neque, vestibulum eget, vulputate ut, ultrices vel, augue.', '2021-11-08', '2023-02-05', 785747, 454, 16, 13, 40, 51),
-	(82, 'Tacos', 'Nam ultrices, libero non mattis pulvinar, nulla pede ullamcorper augue, a suscipit nulla elit ac nulla. Sed vel enim sit amet nunc viverra dapibus.', '2021-09-05', '2023-02-02', 952130, 515, 15, 19, 40, 87),
-	(83, 'Macrosoftex', 'Suspendisse potenti. Nullam porttitor lacus at turpis.', '2021-10-08', '2023-05-26', 508597, 595, 2, 14, 40, 2);
+	(78, 'Loren', 'Nam dui. Proin leo odio, porttitor id, consequat in, consequat ut, nulla. Sed accumsan felis. Ut at dolor quis odio consequat varius.', '2021-12-25', '2023-12-28', 447308, 733, 16, 23, 40, 17);
 /*!40000 ALTER TABLE `projects` ENABLE KEYS */;
 
 -- Dumping structure for πίνακας elidek.researchers
@@ -1127,7 +1122,6 @@ INSERT INTO `working` (`researcher_id`, `project_id`) VALUES
 	(2, 40),
 	(2, 44),
 	(2, 50),
-	(2, 83),
 	(3, 1),
 	(3, 2),
 	(3, 8),
@@ -1626,7 +1620,6 @@ INSERT INTO `working` (`researcher_id`, `project_id`) VALUES
 	(51, 36),
 	(51, 40),
 	(51, 58),
-	(51, 81),
 	(52, 9),
 	(52, 13),
 	(52, 20),
@@ -1766,7 +1759,6 @@ INSERT INTO `working` (`researcher_id`, `project_id`) VALUES
 	(64, 39),
 	(64, 40),
 	(64, 52),
-	(64, 80),
 	(65, 10),
 	(65, 11),
 	(65, 15),
@@ -2016,7 +2008,6 @@ INSERT INTO `working` (`researcher_id`, `project_id`) VALUES
 	(87, 39),
 	(87, 57),
 	(87, 66),
-	(87, 82),
 	(88, 3),
 	(88, 6),
 	(88, 7),
@@ -2094,7 +2085,6 @@ INSERT INTO `working` (`researcher_id`, `project_id`) VALUES
 	(95, 31),
 	(95, 33),
 	(95, 35),
-	(95, 79),
 	(96, 1),
 	(96, 9),
 	(96, 21),
