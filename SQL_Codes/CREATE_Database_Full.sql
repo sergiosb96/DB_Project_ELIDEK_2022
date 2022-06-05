@@ -433,7 +433,7 @@ CREATE TABLE IF NOT EXISTS `projects` (
   `starting_date` date NOT NULL,
   `ending_date` date NOT NULL,
   `funding` float NOT NULL CHECK (`funding` >= 100000 and `funding` <= 1000000),
-  `duration` int(11) NOT NULL CHECK (`duration` >= 0 and `duration` <= 1461),
+  `duration` smallint as (TIMESTAMPDIFF(DAY,starting_date,ending_date)) CHECK (`duration`>364 and `duration`<1462),
   `staff_id` int(11) NOT NULL,
   `program_id` int(11) NOT NULL,
   `organization_id` int(11) NOT NULL,
