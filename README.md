@@ -7,7 +7,7 @@ This is a project for the Databases class in NTUA Electrical and Computer Engine
 
 1. Gina Kalogeropoulou, 03114174, @GinaKalog
 2. Nikos Papanikolas, 03120624, @NikosP6
-3. Sergios Batsas, ,@Azzy90
+3. Sergios Batsas, 03114762 ,@Azzy90
 
 ## Dependencies
 
