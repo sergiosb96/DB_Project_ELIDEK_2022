@@ -3,10 +3,12 @@ FROM
    (SELECT organizations.organization_id, organizations.name AS Name, count(*) AS total_projects, year(starting_date) AS Year
     FROM organizations
     INNER JOIN projects ON organizations.organization_id = projects.organization_id
-    GROUP BY organization_id, year) AS A,
+    GROUP BY organization_id, year) AS A
+JOIN
    (SELECT organizations.organization_id, organizations.name AS Name, count(*) AS total_projects, year(starting_date) AS Year
     FROM organizations
  	  INNER JOIN projects ON organizations.organization_id = projects.organization_id
     GROUP BY organization_id, year) AS B
-WHERE A.organization_id = B.organization_id AND B.Year=A.Year+1 AND A.total_projects=B.total_projects 
+ON A.organization_id = B.organization_id AND B.Year=A.Year+1
+    WHERE (A.total_projects >= 10 AND B.total_projects  >= 10) AND (A.total_projects=B.total_projects)
 GROUP BY A.name;
