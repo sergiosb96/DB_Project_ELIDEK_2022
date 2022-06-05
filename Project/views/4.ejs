@@ -27,16 +27,19 @@
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th>Staff ID</th>
-                                        <th>First Name</th>
-                                        <th></th>
+                                        <th>Organization Name</th>
+                                        <th>Year 1</th>
+                                        <th>Year 2</th>
+                                        <th>Annual Projects</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <% query4.forEach((query4, _) => { %>
                                         <tr>
-                                            <td><%= query4.Researcher_Name %></td>
-                                            <td><%= query4.Total_Projects %></td>
+                                            <td><%= query4.name %></td>
+                                            <td><%= query4.Year_1 %></td>
+                                            <td><%= query4.Year_2 %></td>
+                                            <td><%= query4.Annual_Projects %></td>
                                         </tr>
                                     <% }) %>
                                 </tbody>

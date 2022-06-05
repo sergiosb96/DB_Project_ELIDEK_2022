@@ -123,14 +123,14 @@ exports.getQuery3 = (req, res, next) => {
 }
 
 /* Controller to retrieve Query 4 from database */
-exports.getQuery4 = (req, res, next) => {}
+exports.getQuery4 = (req, res, next) => {
 
 
     /* create the connection */
-/*    pool.getConnection((err, conn) => {
+    pool.getConnection((err, conn) => {
 
         /* execute query  */
-/*            conn.promise().query(``)
+            conn.promise().query(`SELECT A.name, A.Year AS Year_1, B.year AS Year_2, A.total_projects AS Annual_Projects FROM (SELECT organizations.organization_id, organizations.name AS Name, count(*) AS total_projects, year(starting_date) AS Year FROM organizations INNER JOIN projects ON organizations.organization_id = projects.organization_id GROUP BY organization_id, year) AS A, (SELECT organizations.organization_id, organizations.name AS Name, count(*) AS total_projects, year(starting_date) AS Year FROM organizations INNER JOIN projects ON organizations.organization_id = projects.organization_id GROUP BY organization_id, year) AS B WHERE A.organization_id = B.organization_id AND B.Year=A.Year+1 AND A.total_projects=B.total_projects GROUP BY A.name;`)
             .then(([rows, fields]) => {
                 res.render('4.ejs', {
                     pageTitle: "Query 4",
@@ -143,7 +143,6 @@ exports.getQuery4 = (req, res, next) => {}
     
 }
 
-*/
 
 /* Controller to retrieve Query 5 from database */
 exports.getQuery5 = (req, res, next) => {
